@@ -1,0 +1,2 @@
+include ':app', ':nice_ktx'
+rootProject.name='NiceKTX'
