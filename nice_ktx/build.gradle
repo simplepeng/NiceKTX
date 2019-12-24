@@ -1,14 +1,18 @@
 apply plugin: 'com.android.library'
+
+apply plugin: 'maven'
+apply plugin: 'com.novoda.bintray-release'
+
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-android {
-    compileSdkVersion 28
-    buildToolsVersion "29.0.1"
 
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 28
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
 
@@ -27,10 +31,34 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.core:core-ktx:1.1.0'
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}
+
+uploadArchives {
+    repositories.mavenDeployer {
+        // 本地仓库路径
+        repository(url: 'file:///Users/chenpeng/Desktop/Repositories/')
+        // 唯一标识
+        pom.groupId = rootProject.ext.groupId
+        // 项目名称
+        pom.artifactId = rootProject.ext.artifactId
+        // 版本号
+        pom.version = rootProject.ext.publishVersion
+    }
+}
+
+publish {
+    userOrg = 'simplepeng'
+    groupId = rootProject.ext.groupId
+    artifactId = rootProject.ext.artifactId
+    publishVersion = rootProject.ext.publishVersion
+    desc = '一个好用的KTX库，是对AndroidKTX的额外补充'
+    website = 'https://github.com/simplepeng/NiceKTX'
 }

@@ -8,10 +8,11 @@ buildscript {
 
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.2'
+        classpath 'com.android.tools.build:gradle:3.5.3'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+        classpath 'com.novoda:bintray-release:0.9.1'
     }
 }
 
@@ -25,4 +26,16 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+ext{
+    compileSdkVersion = 29
+    buildToolsVersion = "29.0.2"
+
+    minSdkVersion = 14
+    targetSdkVersion = 29
+
+    groupId = "me.simple"
+    artifactId = "nice-ktx"
+    publishVersion = "1.0.0"
 }
