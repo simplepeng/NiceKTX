@@ -35,7 +35,7 @@ class OnDebounceClickListener(
         }
 
         val curTime = System.currentTimeMillis()
-        var lastClickTime = 0L
+        var lastClickTime: Long
 
         val tag: Any? = v.getTag(mTag)
         if (tag == null) {
@@ -47,8 +47,8 @@ class OnDebounceClickListener(
         lastClickTime = tag as Long
         val canClick = curTime - lastClickTime > interval
         if (canClick) {
-            v.setTag(mTag, curTime)
             block.invoke(v)
+            v.setTag(mTag, curTime)
         }
     }
 }

@@ -2,9 +2,9 @@ package me.simple.ktxdemo
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import me.simple.ktx.longToast
-import me.simple.ktx.toast
+import kotlinx.android.synthetic.main.activity_main.*
+import me.simple.ktx.*
+import kotlin.reflect.KClass
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,10 +12,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
+        setListener()
     }
 
-    fun toast(view: View) {
-        longToast(R.string.app_name)
+    private fun setListener() {
+        btn_ViewKtx.setOnDebounceClickListener {
+            startActivity(ViewKtxActivity::class)
+        }
     }
 }
