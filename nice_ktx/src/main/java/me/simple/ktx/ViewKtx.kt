@@ -1,5 +1,6 @@
 package me.simple.ktx
 
+import android.app.Activity
 import android.view.View
 
 fun View.gone() {
@@ -14,6 +15,9 @@ fun View.invisible() {
     this.visibility = View.INVISIBLE
 }
 
+/**
+ * 防抖动点击事件
+ */
 fun View.setOnDebounceClickListener(
     interval: Int = 300,
     block: (view: View?) -> Unit
@@ -35,7 +39,6 @@ class OnDebounceClickListener(
         }
 
         val curTime = System.currentTimeMillis()
-        var lastClickTime: Long
 
         val tag: Any? = v.getTag(mTag)
         if (tag == null) {
@@ -44,11 +47,15 @@ class OnDebounceClickListener(
             return
         }
 
-        lastClickTime = tag as Long
+        val lastClickTime = tag as Long
         val canClick = curTime - lastClickTime > interval
         if (canClick) {
             block.invoke(v)
             v.setTag(mTag, curTime)
         }
+    }
+
+    fun View.getActivity(): Activity? {
+        return this.context.getActivity()
     }
 }

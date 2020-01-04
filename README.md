@@ -1,2 +1,2 @@
-# 一个好用的KTX库，是对AndroidKTX的额外补充
+# 一个超赞的Kotlin扩展库
 
