@@ -15,18 +15,17 @@ fun View.invisible() {
 }
 
 fun View.setOnDebounceClickListener(
-    duration: Int = 300,
+    interval: Int = 300,
     block: (view: View?) -> Unit
 ) {
-    this.setOnClickListener(OnDebounceClickListener(duration, block))
+    this.setOnClickListener(OnDebounceClickListener(interval, block))
 }
 
 class OnDebounceClickListener(
-    private var duration: Int = 300,
+    private var interval: Int,
     private var block: (view: View?) -> Unit
 ) : View.OnClickListener {
 
-    private var mEnable = true
     private var mTag = -11
 
     override fun onClick(v: View?) {
@@ -34,16 +33,22 @@ class OnDebounceClickListener(
             block.invoke(v)
             return
         }
-        val tag = v.getTag(mTag)
-        if (tag is Long){
 
+        val curTime = System.currentTimeMillis()
+        var lastClickTime = 0L
+
+        val tag: Any? = v.getTag(mTag)
+        if (tag == null) {
+            v.setTag(mTag, curTime)
+            block.invoke(v)
+            return
         }
 
-        val currentTimeMillis = System.currentTimeMillis()
-
-        if (mEnable) return
-
-
-        block.invoke(v)
+        lastClickTime = tag as Long
+        val canClick = curTime - lastClickTime > interval
+        if (canClick) {
+            v.setTag(mTag, curTime)
+            block.invoke(v)
+        }
     }
 }

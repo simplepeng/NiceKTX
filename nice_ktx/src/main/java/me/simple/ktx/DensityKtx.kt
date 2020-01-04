@@ -2,9 +2,9 @@ package me.simple.ktx
 
 import android.content.res.Resources
 
-val Float.dp: Float
-    get() = Resources.getSystem().displayMetrics.density * this + 0.5f
-
+/**
+ * px to dp
+ */
 val Int.dp: Int
     get() = this.toFloat().dp.toInt()
 
@@ -13,4 +13,22 @@ val Long.dp: Long
 
 val Double.dp: Double
     get() = this.toFloat().dp.toDouble()
+
+val Float.dp: Float
+    get() = Resources.getSystem().displayMetrics.density * this + 0.5f
+
+/**
+ * px to sp
+ */
+val Int.sp: Int
+    get() = this.toFloat().sp.toInt()
+
+val Long.sp: Long
+    get() = this.toFloat().sp.toLong()
+
+val Double.sp: Double
+    get() = this.toFloat().sp.toDouble()
+
+val Float.sp: Float
+    get() = this / Resources.getSystem().displayMetrics.scaledDensity + 0.5f
 
