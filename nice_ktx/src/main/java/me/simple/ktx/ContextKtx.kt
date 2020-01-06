@@ -35,12 +35,12 @@ fun Context.getActivity(): Activity? {
 /**
  * 获取屏幕宽度
  */
-fun getScreenWidth() = Resources.getSystem().displayMetrics.widthPixels
+fun Context.getScreenWidth() = Resources.getSystem().displayMetrics.widthPixels
 
 /**
  * 获取屏幕高度
  */
-fun getScreenHeight() = Resources.getSystem().displayMetrics.heightPixels
+fun Context.getScreenHeight() = Resources.getSystem().displayMetrics.heightPixels
 
 /**
  * 打开网页
@@ -55,6 +55,37 @@ fun Context.openWeb(
             val uri = Uri.parse(url)
             data = uri
         }
+        this.startActivity(intent)
+    } catch (e: Exception) {
+        onError.invoke(e)
+    }
+}
+
+fun Context.sendEmail(
+    email: String,
+    subject: String? = "",
+    onError: (e: Exception) -> Unit = {}
+) {
+    try {
+        val uri = Uri.parse("mailto:$email")
+        val intent = Intent(Intent.ACTION_SENDTO, uri).apply {
+            putExtra(Intent.EXTRA_CC, email)
+            putExtra(Intent.EXTRA_SUBJECT, subject)
+        }
+        this.startActivity(intent)
+    } catch (e: Exception) {
+        onError.invoke(e)
+    }
+}
+
+fun Context.openMarket(
+    packageName: String = this.packageName,
+    onError: (e: Exception) -> Unit = {}
+) {
+    try {
+        val uri = Uri.parse("market://details?id=${packageName}")
+        val intent = Intent(Intent.ACTION_VIEW, uri)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         this.startActivity(intent)
     } catch (e: Exception) {
         onError.invoke(e)
