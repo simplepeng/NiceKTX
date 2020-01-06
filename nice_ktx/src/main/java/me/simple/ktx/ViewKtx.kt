@@ -15,6 +15,10 @@ fun View.invisible() {
     this.visibility = View.INVISIBLE
 }
 
+fun View.getActivity(): Activity? {
+    return this.context.getActivity()
+}
+
 /**
  * 防抖动点击事件
  */
@@ -53,9 +57,5 @@ class OnDebounceClickListener(
             block.invoke(v)
             v.setTag(mTag, curTime)
         }
-    }
-
-    fun View.getActivity(): Activity? {
-        return this.context.getActivity()
     }
 }
