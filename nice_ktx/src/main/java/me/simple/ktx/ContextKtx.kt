@@ -1,9 +1,7 @@
 package me.simple.ktx
 
 import android.app.Activity
-import android.content.Context
-import android.content.ContextWrapper
-import android.content.Intent
+import android.content.*
 import android.content.res.Resources
 import android.net.ConnectivityManager
 import android.net.Uri
@@ -18,6 +16,9 @@ fun Context.haveNetwork(): Boolean {
     return networkInfo.isAvailable && networkInfo.isConnected
 }
 
+/**
+ * 从Context获取Activity
+ */
 fun Context.getActivity(): Activity? {
     if (this is Activity) return this
 
@@ -61,6 +62,9 @@ fun Context.openWeb(
     }
 }
 
+/**
+ * 发送Email
+ */
 fun Context.sendEmail(
     email: String,
     subject: String? = "",
@@ -78,6 +82,9 @@ fun Context.sendEmail(
     }
 }
 
+/**
+ * 打开应用商店
+ */
 fun Context.openMarket(
     packageName: String = this.packageName,
     onError: (e: Exception) -> Unit = {}
@@ -90,4 +97,16 @@ fun Context.openMarket(
     } catch (e: Exception) {
         onError.invoke(e)
     }
+}
+
+/**
+ * 复制文本
+ */
+fun Context.copyText(
+    text: String,
+    label: String
+) {
+    val cm = this.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+    val clipData = ClipData.newPlainText(label, text)
+    cm.setPrimaryClip(clipData)
 }
