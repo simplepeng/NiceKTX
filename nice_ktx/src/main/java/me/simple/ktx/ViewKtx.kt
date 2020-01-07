@@ -3,6 +3,21 @@ package me.simple.ktx
 import android.app.Activity
 import android.view.View
 
+val View.isGone: Boolean
+    get() {
+        return this.visibility == View.GONE
+    }
+
+val View.isVisible: Boolean
+    get() {
+        return this.visibility == View.VISIBLE
+    }
+
+val View.isInvisible: Boolean
+    get() {
+        return this.visibility == View.INVISIBLE
+    }
+
 fun View.gone() {
     this.visibility = View.GONE
 }
