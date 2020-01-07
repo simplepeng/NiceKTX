@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     private fun setListener() {
         btn_ViewKtx.setOnDebounceClickListener {
             startActivity(ViewKtxActivity::class)
+            "".logV()
         }
     }
 }

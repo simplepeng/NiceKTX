@@ -2,22 +2,22 @@ package me.simple.ktx
 
 import android.util.Log
 
-fun logDebug(tag: String?, msg: String) {
-    Log.d(tag, msg)
+fun String.logV(tag: String = NiceKtx.logTag) {
+    Log.v(tag, this)
 }
 
-fun logInfo(tag: String?, msg: String) {
-    Log.i(tag, msg)
+fun String.logD(tag: String = NiceKtx.logTag) {
+    Log.d(tag, this)
 }
 
-fun logWran(tag: String?, msg: String) {
-    Log.w(tag, msg)
+fun String.logI(tag: String = NiceKtx.logTag) {
+    Log.i(tag, this)
 }
 
-fun logError(tag: String?, msg: String) {
-    Log.e(tag, msg)
+fun String.logW(tag: String = NiceKtx.logTag) {
+    Log.w(tag, this)
 }
 
-fun logVerbose(tag: String?, msg: String) {
-    Log.v(tag, msg)
+fun String.logE(tag: String = NiceKtx.logTag) {
+    Log.e(tag, this)
 }
