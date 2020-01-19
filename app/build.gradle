@@ -34,5 +34,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     implementation 'com.blankj:utilcodex:1.26.0'
-    implementation project(path: ':nice_ktx')
+//    implementation project(path: ':nice_ktx')
+    implementation "me.simple:nice-ktx:1.0.0"
 }
