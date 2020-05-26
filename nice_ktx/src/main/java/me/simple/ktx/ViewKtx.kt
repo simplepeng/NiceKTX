@@ -37,29 +37,28 @@ fun View.getActivity(): Activity? {
     return this.context.getActivity()
 }
 
+fun View.click(block: (view: View) -> Unit) {
+    this.setOnClickListener(block)
+}
+
 /**
  * 防抖动点击事件
  */
-fun View.setOnDebounceClickListener(
+fun View.singleClick(
     interval: Int = 300,
-    block: (view: View?) -> Unit
+    block: (view: View) -> Unit
 ) {
     this.setOnClickListener(OnDebounceClickListener(interval, block))
 }
 
 class OnDebounceClickListener(
     private var interval: Int,
-    private var block: (view: View?) -> Unit
+    private var block: (view: View) -> Unit
 ) : View.OnClickListener {
 
     private var mTag = -11
 
-    override fun onClick(v: View?) {
-        if (v == null) {
-            block.invoke(v)
-            return
-        }
-
+    override fun onClick(v: View) {
         val curTime = System.currentTimeMillis()
 
         val tag: Any? = v.getTag(mTag)
@@ -76,10 +75,5 @@ class OnDebounceClickListener(
             v.setTag(mTag, curTime)
         }
     }
-
-    /**
-     *
-     */
-
 
 }

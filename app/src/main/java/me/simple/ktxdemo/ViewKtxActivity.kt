@@ -4,8 +4,6 @@ import android.os.Bundle
 import com.blankj.utilcode.util.ClickUtils
 import kotlinx.android.synthetic.main.activity_view_ktx.*
 import me.simple.ktx.logDebug
-import me.simple.ktx.setOnDebounceClickListener
-import me.simple.ktx.toast
 
 class ViewKtxActivity : BaseActivity() {
 
