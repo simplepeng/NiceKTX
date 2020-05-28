@@ -2,6 +2,7 @@ package me.simple.ktxdemo
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.lifecycleScope
 import kotlinx.android.synthetic.main.activity_main.*
 import me.simple.ktx.*
 import kotlin.reflect.KClass
