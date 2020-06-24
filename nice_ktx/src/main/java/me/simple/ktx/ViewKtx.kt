@@ -37,6 +37,9 @@ fun View.getActivity(): Activity? {
     return this.context.getActivity()
 }
 
+/**
+ * 点击事件
+ */
 fun View.click(block: (view: View) -> Unit) {
     this.setOnClickListener(block)
 }
@@ -48,10 +51,10 @@ fun View.singleClick(
     interval: Int = 300,
     block: (view: View) -> Unit
 ) {
-    this.setOnClickListener(OnDebounceClickListener(interval, block))
+    this.setOnClickListener(SingleClickListener(interval, block))
 }
 
-class OnDebounceClickListener(
+class SingleClickListener(
     private var interval: Int,
     private var block: (view: View) -> Unit
 ) : View.OnClickListener {
