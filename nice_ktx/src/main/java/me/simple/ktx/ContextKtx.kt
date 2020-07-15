@@ -8,40 +8,44 @@ import android.net.Uri
 import androidx.annotation.RequiresPermission
 import java.lang.Exception
 
+/**
+ * 网络是否连接
+ */
 @RequiresPermission(android.Manifest.permission.ACCESS_NETWORK_STATE)
-fun Context.haveNetwork(): Boolean {
+fun Context.isConnected(): Boolean {
     val conn = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
     val networkInfo = conn.activeNetworkInfo ?: return false
-
     return networkInfo.isAvailable && networkInfo.isConnected
 }
 
 /**
  * 从Context获取Activity
  */
-fun Context.getActivity(): Activity? {
-    if (this is Activity) return this
+val Context.activity: Activity?
+    get() {
+        if (this is Activity) return this
 
-    var context = this
-    while (context is ContextWrapper) {
-        if (context is Activity) {
-            return context
+        var context = this
+        while (context is ContextWrapper) {
+            if (context is Activity) {
+                return context
+            }
+            context = context.baseContext
         }
-        context = context.baseContext
+        return null
     }
-
-    return null
-}
 
 /**
  * 获取屏幕宽度
  */
-fun Context.getScreenWidth() = Resources.getSystem().displayMetrics.widthPixels
+val Context.screenWidth
+    get() = Resources.getSystem().displayMetrics.widthPixels
 
 /**
  * 获取屏幕高度
  */
-fun Context.getScreenHeight() = Resources.getSystem().displayMetrics.heightPixels
+val Context.screenHeight
+    get() = Resources.getSystem().displayMetrics.heightPixels
 
 /**
  * 打开网页
@@ -108,5 +112,5 @@ fun Context.copyText(
 ) {
     val cm = this.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
     val clipData = ClipData.newPlainText(label, text)
-    cm.setPrimaryClip(clipData)
+    cm.primaryClip = clipData
 }

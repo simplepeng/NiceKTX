@@ -4,38 +4,32 @@ import android.app.Activity
 import android.view.View
 
 /**
- * android-ktx 自带了，注释了
+ * 隐藏View
  */
-//val View.isGone: Boolean
-//    get() {
-//        return this.visibility == View.GONE
-//    }
-//
-//val View.isVisible: Boolean
-//    get() {
-//        return this.visibility == View.VISIBLE
-//    }
-//
-//val View.isInvisible: Boolean
-//    get() {
-//        return this.visibility == View.INVISIBLE
-//    }
-
 fun View.gone() {
     this.visibility = View.GONE
 }
 
+/**
+ * 显示View
+ */
 fun View.visible() {
     this.visibility = View.VISIBLE
 }
 
+/**
+ * 隐藏View，保留位置
+ */
 fun View.invisible() {
     this.visibility = View.INVISIBLE
 }
 
-fun View.getActivity(): Activity? {
-    return this.context.getActivity()
-}
+/**
+ * 从View的Context中获取Activity
+ */
+val View.activity: Activity?
+    get() = this.context.activity
+
 
 /**
  * 点击事件

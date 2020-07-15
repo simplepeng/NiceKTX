@@ -8,6 +8,9 @@ import java.util.*
 private const val yyyy_MM_dd_HH_mm_ss = "yyyy-MM-dd HH:mm:ss"
 private val SDF_THREAD_LOCAL = ThreadLocal<SimpleDateFormat>()
 
+/**
+ * 毫秒转时间字符串
+ */
 fun Long.toDateString(format: DateFormat = getDefaultFormat()): String {
     return format.format(Date(this))
 }
@@ -16,6 +19,9 @@ fun Long.toDateString(format: String = yyyy_MM_dd_HH_mm_ss): String {
     return this.toDateString(getDateFormat(format))
 }
 
+/**
+ * 时间字符串转毫秒
+ */
 fun String.toMillis(format: DateFormat = getDefaultFormat()): Long {
     return string2Millis(this, format)
 }
