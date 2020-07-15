@@ -1,7 +1,6 @@
 package me.simple.ktxdemo
 
 import android.app.Application
-import me.simple.ktx.NiceKtx
 
 class DemoApp : Application() {
 
@@ -9,6 +8,5 @@ class DemoApp : Application() {
         super.onCreate()
 
 
-        NiceKtx.init().setLogTag("DemoApp")
     }
 }

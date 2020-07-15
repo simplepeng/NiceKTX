@@ -1,2 +1,3 @@
+include ':coroutine_ktx'
 include ':app', ':nice_ktx'
 rootProject.name='NiceKTX'
