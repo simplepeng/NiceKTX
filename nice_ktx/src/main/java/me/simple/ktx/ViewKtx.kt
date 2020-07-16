@@ -72,5 +72,4 @@ class SingleClickListener(
             v.setTag(mTag, curTime)
         }
     }
-
 }
