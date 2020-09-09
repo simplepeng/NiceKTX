@@ -3,6 +3,7 @@ package me.simple.ktx
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
+import androidx.annotation.StringRes
 
 /**
  * EditText的文本为空
@@ -16,6 +17,22 @@ fun EditText.isEmpty(): Boolean {
  */
 fun EditText.selectionEnd() {
     this.setSelection(this.text.length)
+}
+
+/**
+ * 设置文字，并将将光标移动至末尾
+ */
+fun EditText.setTextAndSelectionEnd(@StringRes resId: Int) {
+    this.setText(resId)
+    selectionEnd()
+}
+
+/**
+ * 设置文字，并将将光标移动至末尾
+ */
+fun EditText.setTextAndSelectionEnd(text: CharSequence) {
+    this.setText(text)
+    selectionEnd()
 }
 
 /**
