@@ -1,69 +1,66 @@
 # 一个超赞的Kotlin扩展库
 
-## 原生的KTX
+## ActivityKTX
 
-### ActivityKtx
+* startActivity()：跳转Activity
 
-|      方法名/字段名       |     注释     |
-| :----------------------: | :----------: |
-| Activity.startActivity() | 跳转Activity |
+## BitmapKTX
 
-### BitmapKtx
+* Bitmap.saveFile()：保存位图到本地文件
+* Bitmap.base64()：获取位图的base64
 
-|   方法名/字段名   |        注释        |
-| :---------------: | :----------------: |
-| Bitmap.saveFile() | 保存位图到本地文件 |
-|  Bitmap.base64()  |  获取位图的base64  |
+## ContextKTX
 
-### ContextKtx
+* isConnected()： 网络是否连接
+* Context.activity： 从Context获取Activity
+* Context.screenWidth： 屏幕宽度
+* Context.screenHeight： 屏幕高度
+* openWeb() ：打开网页
+* sendEmail() ：发送Email
+* openMarket() ：打开应用商店，推荐使用我的另外一个开源库：[MarketHelper](https://github.com/simplepeng/MarketHelper)
+* copyText() ：复制文本
 
-|    方法名/字段名     |         注释          |
-| :------------------: | :-------------------: |
-| Context.isConnected  |     网络是否连接      |
-|   Context.activity   | 从Context获取Activity |
-| Context.screenWidth  |       屏幕宽度        |
-| Context.screenHeight |       屏幕高度        |
-|                      |                       |
+## DateKTX
 
-### DateKtx
+* Long.toDateString() : 毫秒转时间字符串
+* String.toMillis() ：时间字符串转毫秒
 
-|   方法名/字段名   |       注释       |
-| :---------------: | :--------------: |
-| Long.toDateString | 毫秒转时间字符串 |
-|  String.toMillis  | 时间字符串转毫秒 |
-|                   |                  |
+## DensityKTX
 
-### DensityKtx
+* (Int/Long/Double/Float).dp ：dp 转 px
+* (Int/Long/Double/Float).sp ：sp 转 px 
 
-|       方法名/字段名        |   注释   |
-| :------------------------: | :------: |
-| (Int/Long/Double/Float).dp | px to dp |
-| (Int/Long/Double/Float).sp | px to sp |
+## EditTextKTX
 
-### TextViewKtx
+* isEmpty() ： EditText的文本为空
+* selectionEnd() ： 将光标移动至末尾
+* setTextAndSelectionEnd() ：设置文字，并将将光标移动至末尾
+* listenerTextChange() ：监听文本变化
 
-|    方法名/字段名     |   注释   |
-| :------------------: | :------: |
-| TextView.clearText() | 清空文本 |
-|                      |          |
+## SecureKTX
 
-### ToastKtx
+* String?.md5 ：字符串转MD5
+* File?.md5 ： 文件的MD5
+* String.sha1 ： 字符串转sha1
 
-|    方法名/字段名    |  注释  |
-| :-----------------: | :----: |
-|   Context.toast()   | 短吐司 |
-| Context.longToast() | 长吐司 |
+## TextViewKTX
 
-### ViewKtx
+* clearText() ： 清空文本
 
-|   方法名/字段名    |             注释              |
-| :----------------: | :---------------------------: |
-|    View.gone()     |           隐藏View            |
-|   View.visible()   |           显示View            |
-|  View.invisible()  |      隐藏View，保留位置       |
-| View.getActivity() | 从View的Context中获取Activity |
-|    View.click()    |           点击事件            |
-| View.singleClick() |        防抖动点击事件         |
+## ToastKTX
 
-## 外部库的KTX
+* toast() ： 短吐司
+* longToast() ：长吐司
+
+## ViewKTX
+
+* gone() ： 隐藏View
+* visible() ： 显示View
+* invisible() ：隐藏View，保留位置
+* getActivity() ：从View的Context中获取Activity
+* click() ：点击事件
+* singleClick() ：防抖动单击事件
+
+
+
 

@@ -3,7 +3,7 @@ package me.simple.ktx
 import android.content.res.Resources
 
 /**
- * px to dp
+ * dp 2 px
  */
 val Int.dp: Int
     get() = this.toFloat().dp.toInt()
@@ -18,7 +18,7 @@ val Float.dp: Float
     get() = Resources.getSystem().displayMetrics.density * this + 0.5f
 
 /**
- * px to sp
+ * sp 2 px
  */
 val Int.sp: Int
     get() = this.toFloat().sp.toInt()

@@ -11,7 +11,7 @@ private val HEX_DIGITS =
     charArrayOf('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F')
 
 /**
- *
+ * 字符串转MD5
  */
 val String?.md5: String
     get() {
@@ -56,7 +56,7 @@ private fun hashTemplate(data: ByteArray?, algorithm: String): ByteArray? {
 }
 
 /**
- *
+ * 文件的MD5
  */
 val File?.md5: String
     get() {
@@ -94,7 +94,7 @@ private fun encryptMD5File(file: File?): ByteArray? {
 }
 
 /**
- *
+ * 字符串转sha1
  */
 val String.sha1: String
     get() {
@@ -106,7 +106,7 @@ private fun encryptSHA1(data: ByteArray): ByteArray? {
 }
 
 /**
- *
+ * 字符串转sha256
  */
 val String.sha256: String
     get() {
@@ -118,7 +118,7 @@ private fun encryptSHA256(data: ByteArray): ByteArray? {
 }
 
 /**
- *
+ * 字符串转sha512
  */
 val String.sha512: String
     get() {
