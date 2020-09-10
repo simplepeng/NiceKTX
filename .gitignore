@@ -13,4 +13,4 @@
 /captures
 .externalNativeBuild
 .cxx
-bintray_publish.sh
+nice_ktx/bintray_publish.sh

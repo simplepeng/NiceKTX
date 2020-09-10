@@ -1,5 +1,13 @@
 # 一个超赞的Kotlin扩展库
 
+![MIT](https://img.shields.io/badge/License-MIT-orange?style=flat-square)  ![Jcenter](https://img.shields.io/badge/Jcenter-x.y.z-brightgreen?style=flat-square)  ![Androidx](https://img.shields.io/badge/Androidx-Yes-blue?style=flat-square)  ![Api](https://img.shields.io/badge/Api-14+-blueviolet?style=flat-square) 
+
+## 导入依赖
+
+```groovy
+implementation 'me.simple:nice-ktx:1.0.0'
+```
+
 ## ActivityKTX
 
 * startActivity()：跳转Activity

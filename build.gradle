@@ -41,6 +41,4 @@ ext{
     targetSdkVersion = 28
 
     groupId = "me.simple"
-    artifactId = "nice-ktx"
-    publishVersion = "1.0.0"
 }

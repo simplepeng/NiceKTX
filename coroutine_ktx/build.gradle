@@ -2,6 +2,9 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'maven'
+apply plugin: 'com.novoda.bintray-release'
+
 android {
     compileSdkVersion 29
     buildToolsVersion "30.0.0"
@@ -35,4 +38,13 @@ dependencies {
 
 
     api 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.0-alpha05'
+}
+
+publish {
+    userOrg = 'simplepeng'
+    groupId = rootProject.ext.groupId
+    artifactId = "coroutine-ktx"
+    publishVersion = "1.0.0"
+    desc = '一个超赞的Kotlin扩展库'
+    website = 'https://github.com/simplepeng/NiceKTX'
 }

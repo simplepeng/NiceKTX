@@ -1,10 +1,9 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'maven'
 apply plugin: 'com.novoda.bintray-release'
-
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -37,7 +36,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    api 'androidx.appcompat:appcompat:1.1.0'
+    api 'androidx.appcompat:appcompat:1.2.0'
 //    api 'androidx.core:core-ktx:1.1.0'
 
 
@@ -52,17 +51,17 @@ uploadArchives {
         // 唯一标识
         pom.groupId = rootProject.ext.groupId
         // 项目名称
-        pom.artifactId = rootProject.ext.artifactId
+        pom.artifactId = "nice-ktx"
         // 版本号
-        pom.version = rootProject.ext.publishVersion
+        pom.version = "1.0.0"
     }
 }
 
 publish {
     userOrg = 'simplepeng'
     groupId = rootProject.ext.groupId
-    artifactId = rootProject.ext.artifactId
-    publishVersion = rootProject.ext.publishVersion
+    artifactId = "nice-ktx"
+    publishVersion = "1.0.0"
     desc = '一个超赞的Kotlin扩展库'
     website = 'https://github.com/simplepeng/NiceKTX'
 }
