@@ -1,6 +1,9 @@
 package me.simple.ktx
 
 import android.app.Activity
+import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
+import android.os.Build
 import android.view.View
 
 /**
@@ -70,6 +73,57 @@ class SingleClickListener(
         if (canClick) {
             block.invoke(v)
             v.setTag(mTag, curTime)
+        }
+    }
+}
+
+enum class Shape {
+    RECTANGLE,
+    OVAL,
+    LINE,
+    RING,
+}
+
+/**
+ * 设置背景
+ */
+fun View.background(shape: Shape = Shape.RECTANGLE): ShapeCreator {
+    val creator = ShapeCreator(this)
+    creator.shape = shape
+    return creator
+}
+
+class ShapeCreator(private val view: View) {
+
+    var shape: Shape = Shape.RECTANGLE
+    var solid: Int = Color.WHITE
+
+    fun render() {
+        val d = GradientDrawable().apply {
+            shape = setShape(this@ShapeCreator.shape)
+            setColor(solid)
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            view.background = d
+        } else {
+            view.setBackgroundDrawable(d)
+        }
+    }
+
+    private fun setShape(shape: Shape): Int {
+        return when (shape) {
+            Shape.RECTANGLE -> {
+                GradientDrawable.RECTANGLE
+            }
+            Shape.OVAL -> {
+                GradientDrawable.OVAL
+            }
+            Shape.LINE -> {
+                GradientDrawable.LINE
+            }
+            Shape.RING -> {
+                GradientDrawable.RING
+            }
         }
     }
 }
