@@ -1,4 +1,4 @@
-package me.simple.coroutinektx
+package me.simple.ktx
 
 import androidx.lifecycle.LifecycleCoroutineScope
 import kotlinx.coroutines.CoroutineScope

@@ -1,4 +1,4 @@
-package me.simple.coroutinektx
+package me.simple.ktx
 
 import kotlinx.coroutines.*
 import java.lang.Exception
