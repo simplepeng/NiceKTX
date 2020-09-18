@@ -69,6 +69,17 @@ implementation 'me.simple:nice-ktx:1.0.0'
 * click() ：点击事件
 * singleClick() ：防抖动单击事件
 
+## EventBusKTX
+
+```groovy
+implementation 'me.simple:eventbus-ktx:1.0.0'
+```
+
+```kotlin
+registerOnCreate() //在onCreate中注册事件，自动在onDestroy中注销事件
+registerOnStart() //在onStart中注册事件，自动在onStop中注销事件
+registerOnResume() //在onResume中注册事件，自动在onPause中注销事件
+```
 
 
 

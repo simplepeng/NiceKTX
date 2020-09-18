@@ -7,7 +7,7 @@ import androidx.lifecycle.OnLifecycleEvent
 import org.greenrobot.eventbus.EventBus
 
 /**
- * 在onCreate中注册事件
+ * 在onCreate中注册事件，自动在onDestroy中注销事件
  */
 fun <T : LifecycleOwner> EventBus.registerOnCreate(owner: T) {
     if (this.isRegistered(owner)) return
@@ -33,7 +33,7 @@ class OnCreateLifecycleObserver<T>(
 }
 
 /**
- * 在onStart中注册事件
+ * 在onStart中注册事件，自动在onStop中注销事件
  */
 fun <T : LifecycleOwner> EventBus.registerOnStart(owner: T) {
     if (this.isRegistered(owner)) return
@@ -59,7 +59,7 @@ class OnStartLifecycleObserver<T>(
 }
 
 /**
- * 在onResume中注册事件
+ * 在onResume中注册事件，自动在onPause中注销事件
  */
 fun <T : LifecycleOwner> EventBus.registerOnResume(owner: T) {
     if (this.isRegistered(owner)) return
