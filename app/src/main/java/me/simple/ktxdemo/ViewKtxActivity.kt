@@ -3,7 +3,6 @@ package me.simple.ktxdemo
 import android.os.Bundle
 import com.blankj.utilcode.util.ClickUtils
 import kotlinx.android.synthetic.main.activity_view_ktx.*
-import me.simple.ktx.logDebug
 
 class ViewKtxActivity : BaseActivity() {
 
@@ -22,7 +21,6 @@ class ViewKtxActivity : BaseActivity() {
 //        }
 
         ClickUtils.applySingleDebouncing(btn_debounce) {
-            logDebug(TAG, "debounceClick")
         }
     }
 }

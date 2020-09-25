@@ -75,11 +75,10 @@ implementation 'me.simple:nice-ktx:1.0.0'
 implementation 'me.simple:eventbus-ktx:1.0.0'
 ```
 
-```kotlin
-registerOnCreate() //在onCreate中注册事件，自动在onDestroy中注销事件
-registerOnStart() //在onStart中注册事件，自动在onStop中注销事件
-registerOnResume() //在onResume中注册事件，自动在onPause中注销事件
-```
+* registerOnCreate() //在onCreate中注册事件，自动在onDestroy中注销事件
+* registerOnStart() //在onStart中注册事件，自动在onStop中注销事件
+* registerOnResume() //在onResume中注册事件，自动在onPause中注销事件
+
 
 
 

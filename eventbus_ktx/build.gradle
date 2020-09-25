@@ -10,6 +10,9 @@ android {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
     }
+
+    //不打包BuildConfig.class进aar
+    packageBuildConfig false
 }
 
 dependencies {
@@ -18,4 +21,16 @@ dependencies {
 
     api 'androidx.appcompat:appcompat:1.2.0'
     api 'org.greenrobot:eventbus:3.2.0'
+}
+
+//发布jcenter
+apply plugin: 'com.novoda.bintray-release'
+
+publish {
+    userOrg = 'simplepeng'
+    groupId = rootProject.ext.groupId
+    artifactId = "eventbus-ktx"
+    publishVersion = "1.0.1"
+    desc = '一个超赞的Kotlin扩展库'
+    website = 'https://github.com/simplepeng/NiceKTX'
 }
