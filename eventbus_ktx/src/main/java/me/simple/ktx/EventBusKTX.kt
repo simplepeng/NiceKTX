@@ -83,3 +83,19 @@ class OnResumeLifecycleObserver<T>(
         eventBus.unregister(owner)
     }
 }
+
+/**
+ * 安全调用注册方法
+ */
+fun EventBus.safeRegister(obj: Any) {
+    if (this.isRegistered(obj)) return
+    this.register(obj)
+}
+
+/**
+ * 安全调用注销方法
+ */
+fun EventBus.safeUnregister(obj: Any) {
+    if (!this.isRegistered(obj)) return
+    this.unregister(obj)
+}

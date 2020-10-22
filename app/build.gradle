@@ -21,20 +21,23 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-}
+    dependencies {
+        implementation fileTree(dir: 'libs', include: ['*.jar'])
+        implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+        implementation 'androidx.appcompat:appcompat:1.1.0'
+        implementation 'androidx.core:core-ktx:1.1.0'
+        implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+        testImplementation 'junit:junit:4.12'
+        androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+        androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.core:core-ktx:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+        implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
+        implementation 'com.blankj:utilcodex:1.26.0'
 
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
-    implementation 'com.blankj:utilcodex:1.26.0'
-    implementation project(path: ':nice_ktx')
+        implementation project(path: ':nice_ktx')
 //    implementation "me.simple:nice-ktx:1.0.0"
+
+        implementation project(path: ':eventbus_ktx')
+    }
 }
+

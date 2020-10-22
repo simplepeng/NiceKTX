@@ -69,7 +69,7 @@ implementation 'me.simple:nice-ktx:1.0.0'
 * click() ：点击事件
 * singleClick() ：防抖动单击事件
 
-**版本迭代**
+### 版本迭代
 
 * v1.0.0：首次上传
 
@@ -82,8 +82,12 @@ implementation 'me.simple:eventbus-ktx:1.0.1'
 * registerOnCreate() //在onCreate中注册事件，自动在onDestroy中注销事件
 * registerOnStart() //在onStart中注册事件，自动在onStop中注销事件
 * registerOnResume() //在onResume中注册事件，自动在onPause中注销事件
+* safeRegister() //安全调用注册方法
+* safeUnregister() //安全调用注销方法
 
-**版本迭代**
+### 版本迭代
+
+* v1.0.2：增加安全调用方法
 
 * v1.0.1：去除`BuildConfig.class`
 
