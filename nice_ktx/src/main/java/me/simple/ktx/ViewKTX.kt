@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.os.Build
 import android.view.View
+import androidx.annotation.ColorInt
 
 /**
  * 隐藏View
@@ -74,6 +75,24 @@ class SingleClickListener(
             block.invoke(v)
             v.setTag(mTag, curTime)
         }
+    }
+}
+
+fun View.shape(
+    radius: Int,
+    solid: Int,
+    strokeWidth: Int,
+    strokeColor: Int,
+    dashWidth: Int,
+    dashGap: Int
+) {
+    val drawable = GradientDrawable().apply {
+
+    }
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+        this.background = drawable
+    } else {
+        this.setBackgroundDrawable(drawable)
     }
 }
 

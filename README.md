@@ -76,7 +76,7 @@ implementation 'me.simple:nice-ktx:1.0.0'
 ## EventBusKTX
 
 ```groovy
-implementation 'me.simple:eventbus-ktx:1.0.1'
+implementation 'me.simple:eventbus-ktx:1.0.2'
 ```
 
 * registerOnCreate() //在onCreate中注册事件，自动在onDestroy中注销事件

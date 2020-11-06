@@ -30,7 +30,7 @@ publish {
     userOrg = 'simplepeng'
     groupId = rootProject.ext.groupId
     artifactId = "eventbus-ktx"
-    publishVersion = "1.0.1"
+    publishVersion = "1.0.2"
     desc = '一个超赞的Kotlin扩展库'
     website = 'https://github.com/simplepeng/NiceKTX'
 }
