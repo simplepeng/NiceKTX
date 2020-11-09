@@ -4,10 +4,88 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btn_debounce"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="debounce click"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent">
+
+        <com.zhy.view.flowlayout.FlowLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnRoundRect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="圆角矩形"
+                android:textColor="@android:color/white" />
+
+            <Button
+                android:id="@+id/btnHalfRoundRect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="半圆矩形" />
+
+            <View
+                android:id="@+id/btnShape"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp" />
+
+            <View
+                android:id="@+id/btnShape2"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp" />
+
+            <View
+                android:id="@+id/btnShape3"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp" />
+
+            <View
+                android:id="@+id/btnShape4"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp" />
+
+            <View
+                android:id="@+id/btnShape5"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp" />
+
+            <Button
+                android:id="@+id/btnGradientShape1"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp" />
+
+            <View
+                android:id="@+id/btnGradientShape2"
+                android:layout_width="70dp"
+                android:layout_height="70dp" />
+
+            <Button
+                android:id="@+id/btnGradientShape3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp" />
+
+            <Button
+                android:id="@+id/btnGradientShape4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp" />
+
+            <Button
+                android:id="@+id/btnGradientShape5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp" />
+        </com.zhy.view.flowlayout.FlowLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

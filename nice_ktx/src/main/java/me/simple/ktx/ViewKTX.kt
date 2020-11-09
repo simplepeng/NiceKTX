@@ -78,24 +78,6 @@ class SingleClickListener(
     }
 }
 
-fun View.shape(
-    radius: Int,
-    solid: Int,
-    strokeWidth: Int,
-    strokeColor: Int,
-    dashWidth: Int,
-    dashGap: Int
-) {
-    val drawable = GradientDrawable().apply {
-
-    }
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-        this.background = drawable
-    } else {
-        this.setBackgroundDrawable(drawable)
-    }
-}
-
 enum class Shape {
     RECTANGLE,
     OVAL,
@@ -103,46 +85,177 @@ enum class Shape {
     RING,
 }
 
+private fun setBackground(
+    view: View,
+    drawable: GradientDrawable,
+    shape: Shape
+) {
+
+    when (shape) {
+        Shape.RECTANGLE -> {
+            drawable.shape = GradientDrawable.RECTANGLE
+        }
+        Shape.OVAL -> {
+            drawable.shape = GradientDrawable.OVAL
+        }
+        Shape.LINE -> {
+            drawable.shape = GradientDrawable.LINE
+        }
+        Shape.RING -> {
+            drawable.shape = GradientDrawable.RING
+        }
+    }
+
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+        view.background = drawable
+    } else {
+        view.setBackgroundDrawable(drawable)
+    }
+}
+
 /**
- * 设置背景
+ * 设置View的背景
  */
-fun View.background(shape: Shape = Shape.RECTANGLE): ShapeCreator {
-    val creator = ShapeCreator(this)
-    creator.shape = shape
-    return creator
-}
-
-class ShapeCreator(private val view: View) {
-
-    var shape: Shape = Shape.RECTANGLE
-    var solid: Int = Color.WHITE
-
-    fun render() {
-        val d = GradientDrawable().apply {
-            shape = setShape(this@ShapeCreator.shape)
-            setColor(solid)
-        }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            view.background = d
-        } else {
-            view.setBackgroundDrawable(d)
+fun View.shape(
+    radius: Float,
+    solidColor: Int,
+    strokeWidth: Int = 0,
+    strokeColor: Int = Color.TRANSPARENT,
+    dashWidth: Float = 0f,
+    dashGap: Float = 0f,
+    shape: Shape = Shape.RECTANGLE
+) {
+    val drawable = GradientDrawable().apply {
+        cornerRadius = radius
+        setColor(solidColor)
+        if (strokeWidth != 0) {
+            setStroke(strokeWidth, strokeColor, dashWidth, dashGap)
         }
     }
+    setBackground(this, drawable, shape)
+}
 
-    private fun setShape(shape: Shape): Int {
-        return when (shape) {
-            Shape.RECTANGLE -> {
-                GradientDrawable.RECTANGLE
-            }
-            Shape.OVAL -> {
-                GradientDrawable.OVAL
-            }
-            Shape.LINE -> {
-                GradientDrawable.LINE
-            }
-            Shape.RING -> {
-                GradientDrawable.RING
-            }
+/**
+ * 设置View的背景
+ */
+fun View.shape(
+    topLeftRadius: Float,
+    topRightRadius: Float,
+    bottomLeftRadius: Float,
+    bottomRightRadius: Float,
+    solidColor: Int,
+    strokeWidth: Int = 0,
+    strokeColor: Int = Color.TRANSPARENT,
+    dashWidth: Float = 0f,
+    dashGap: Float = 0f,
+    shape: Shape = Shape.RECTANGLE
+) {
+    val drawable = GradientDrawable().apply {
+        cornerRadii = floatArrayOf(
+            topLeftRadius, topLeftRadius,
+            topRightRadius, topRightRadius,
+            bottomRightRadius, bottomRightRadius,
+            bottomLeftRadius, bottomLeftRadius
+        )
+        setColor(solidColor)
+        if (strokeWidth != 0) {
+            setStroke(strokeWidth, strokeColor, dashWidth, dashGap)
         }
     }
+    setBackground(this, drawable, shape)
 }
+
+/**
+ * 圆角矩形-圆角radius为View高度的一半）
+ */
+fun View.halfRoundRect(solidColor: Int) {
+    this.post {
+        this.roundRect(this.height / 2f, solidColor)
+    }
+}
+
+/**
+ * 圆角矩形
+ */
+fun View.roundRect(
+    radius: Float,
+    solidColor: Int
+) {
+    this.shape(radius, solidColor)
+}
+
+/**
+ * 设置渐变的shape
+ */
+fun View.gradientShape(
+    @ColorInt colors: IntArray,
+    orientation: GradientDrawable.Orientation = GradientDrawable.Orientation.LEFT_RIGHT,
+    shape: Shape = Shape.RECTANGLE,
+    gradientType: Int = GradientDrawable.LINEAR_GRADIENT,
+    useLevel: Boolean = false
+) {
+    val drawable = GradientDrawable(orientation, colors)
+    drawable.gradientType = gradientType
+    drawable.useLevel = useLevel
+
+    setBackground(this, drawable, shape)
+}
+
+/**
+ * 设置渐变的shape，带圆角
+ */
+fun View.gradientShape(
+    radius: Float,
+    @ColorInt colors: IntArray,
+    orientation: GradientDrawable.Orientation = GradientDrawable.Orientation.LEFT_RIGHT,
+    shape: Shape = Shape.RECTANGLE,
+    gradientType: Int = GradientDrawable.LINEAR_GRADIENT,
+    useLevel: Boolean = false
+) {
+    val drawable = GradientDrawable(orientation, colors)
+    drawable.gradientType = gradientType
+    drawable.cornerRadius = radius
+    drawable.useLevel = useLevel
+
+    setBackground(this, drawable, shape)
+}
+
+/**
+ * 设置渐变的shape，带圆角,left,top,right,bottom
+ */
+fun View.gradientShape(
+    topLeftRadius: Float,
+    topRightRadius: Float,
+    bottomLeftRadius: Float,
+    bottomRightRadius: Float,
+    @ColorInt colors: IntArray,
+    orientation: GradientDrawable.Orientation = GradientDrawable.Orientation.LEFT_RIGHT,
+    shape: Shape = Shape.RECTANGLE,
+    gradientType: Int = GradientDrawable.LINEAR_GRADIENT,
+    useLevel: Boolean = false
+) {
+    val drawable = GradientDrawable(orientation, colors)
+    drawable.gradientType = gradientType
+    drawable.cornerRadii = floatArrayOf(
+        topLeftRadius, topLeftRadius,
+        topRightRadius, topRightRadius,
+        bottomRightRadius, bottomRightRadius,
+        bottomLeftRadius, bottomLeftRadius
+    )
+    drawable.useLevel = useLevel
+
+    setBackground(this, drawable, shape)
+}
+
+/**
+ * 设置渐变的shape，带圆角，圆角为View高度的一半
+ */
+fun View.halfGradientShape(
+    @ColorInt colors: IntArray
+) {
+    this.post {
+        gradientShape(this.height / 2f, colors)
+    }
+}
+
+

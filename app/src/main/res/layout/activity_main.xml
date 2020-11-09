@@ -19,6 +19,7 @@
             <Button
                 android:id="@+id/btn_ViewKtx"
                 style="@style/LinearTextView"
+                android:onClick="onClick"
                 android:text="ViewKtx" />
         </LinearLayout>
 
