@@ -86,6 +86,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp" />
+
+            <me.simple.ktxdemo.CanvasKtxView
+                android:layout_width="100dp"
+                android:layout_height="50dp" />
         </com.zhy.view.flowlayout.FlowLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
