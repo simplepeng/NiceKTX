@@ -1,3 +1,4 @@
+include ':lib_common'
 include ':eventbus_ktx'
 include ':coroutine_ktx'
 include ':app', ':nice_ktx'
