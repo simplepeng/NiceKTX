@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
     fun onClick(view: View) {
         when (view.id) {
             R.id.btn_ViewKtx -> {
-                startTo(ViewKtxActivity::class)
+                startTo(ViewKTXActivity::class)
             }
             else -> {
             }

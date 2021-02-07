@@ -7,7 +7,9 @@ import com.blankj.utilcode.util.ClickUtils
 import kotlinx.android.synthetic.main.activity_view_ktx.*
 import me.simple.ktx.*
 
-class ViewKtxActivity : BaseActivity() {
+class ViewKTXActivity : BaseActivity() {
+
+    private var mClickNum = 1
 
     companion object {
         private const val TAG = "ViewKtxActivity"
@@ -18,6 +20,10 @@ class ViewKtxActivity : BaseActivity() {
         setContentView(R.layout.activity_view_ktx)
 
         initView()
+
+        btnSingleClick.singleClick {
+            btnSingleClick.text = (mClickNum++).toString()
+        }
     }
 
     private fun initView() {

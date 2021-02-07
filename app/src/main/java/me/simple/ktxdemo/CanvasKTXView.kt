@@ -9,7 +9,7 @@ import android.view.View
 import me.simple.ktx.drawTextOnBottom
 import me.simple.ktx.drawTextOnTop
 
-class CanvasKtxView
+class CanvasKTXView
 @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,

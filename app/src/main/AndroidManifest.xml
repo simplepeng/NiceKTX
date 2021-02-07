@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".BaseActivity" />
-        <activity android:name=".ViewKtxActivity" />
+        <activity android:name=".ViewKTXActivity" />
     </application>
 
 </manifest>

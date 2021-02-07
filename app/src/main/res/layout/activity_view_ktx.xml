@@ -87,9 +87,16 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp" />
 
-            <me.simple.ktxdemo.CanvasKtxView
+            <me.simple.ktxdemo.CanvasKTXView
                 android:layout_width="100dp"
                 android:layout_height="50dp" />
+
+            <Button
+                android:id="@+id/btnSingleClick"
+                android:layout_width="wrap_content"
+                android:text="singleClick"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp" />
         </com.zhy.view.flowlayout.FlowLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
