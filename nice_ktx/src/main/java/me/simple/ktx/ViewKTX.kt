@@ -77,6 +77,12 @@ class SingleClickListener(
     }
 }
 
+@Desc("设置背景颜色", "1.0.1")
+fun View.setBackgroundColor(colorStr: String) {
+    this.setBackgroundColor(Color.parseColor(colorStr))
+}
+
+
 
 
 
