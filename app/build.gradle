@@ -35,9 +35,10 @@ android {
         implementation 'com.hyman:flowlayout-lib:1.1.2'
 
         implementation project(path: ':nice_ktx')
-//    implementation "me.simple:nice-ktx:1.0.0"
-
         implementation project(path: ':eventbus_ktx')
+        implementation project(path: ':coroutine_ktx')
+
+//        implementation "me.simple:nice-ktx:1.0.0"
     }
 }
 

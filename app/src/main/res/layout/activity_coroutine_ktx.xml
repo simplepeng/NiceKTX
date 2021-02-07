@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.zhy.view.flowlayout.FlowLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btnLaunchOnCreate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="launchOnCreate" />
+
+        <Button
+            android:id="@+id/btnLaunchOnStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="launchOnStart" />
+
+        <Button
+            android:id="@+id/btnLaunchOnResume"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="launchOnResume" />
+    </com.zhy.view.flowlayout.FlowLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

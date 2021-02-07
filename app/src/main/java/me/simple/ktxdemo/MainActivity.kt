@@ -27,10 +27,11 @@ class MainActivity : AppCompatActivity() {
 
     fun onClick(view: View) {
         when (view.id) {
-            R.id.btn_ViewKtx -> {
+            R.id.btnViewKTX -> {
                 startTo(ViewKTXActivity::class)
             }
-            else -> {
+            R.id.btnCoroutineKTX -> {
+                startTo(CoroutineKTXActivity::class)
             }
         }
     }

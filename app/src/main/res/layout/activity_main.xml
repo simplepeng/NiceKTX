@@ -14,13 +14,21 @@
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:padding="10dp"
+            android:orientation="vertical"
             android:layout_height="wrap_content">
 
             <Button
-                android:id="@+id/btn_ViewKtx"
+                android:id="@+id/btnViewKTX"
                 style="@style/LinearTextView"
                 android:onClick="onClick"
-                android:text="ViewKtx" />
+                android:text="ViewKTX" />
+
+            <Button
+                android:id="@+id/btnCoroutineKTX"
+                style="@style/LinearTextView"
+                android:onClick="onClick"
+                android:text="CoroutineKTX" />
         </LinearLayout>
 
     </ScrollView>
