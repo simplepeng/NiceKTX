@@ -3,7 +3,7 @@ package me.simple.ktxdemo
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
-import com.blankj.utilcode.util.ClickUtils
+import android.util.Log
 import kotlinx.android.synthetic.main.activity_view_ktx.*
 import me.simple.ktx.*
 
@@ -22,6 +22,9 @@ class ViewKTXActivity : BaseActivity() {
         initView()
 
         btnSingleClick.singleClick {
+            val startTime = System.currentTimeMillis()
+            val endTime = System.currentTimeMillis()
+            Log.d(TAG, "clickTime = $startTime")
             btnSingleClick.text = (mClickNum++).toString()
         }
     }
