@@ -1,23 +1,23 @@
 package me.simple.ktx
 
-import android.util.Log
 import androidx.lifecycle.*
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.CoroutineStart
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.EmptyCoroutineContext
-
-const val TAG = "CoroutineKTX.kt"
 
 fun LifecycleOwner.launchOnCreate(
     context: CoroutineContext = EmptyCoroutineContext,
     start: CoroutineStart = CoroutineStart.DEFAULT,
     block: suspend CoroutineScope.() -> Unit
 ) {
-    val observer = OnDestroyLifecycleObserver(this.lifecycleScope, context, start, block)
+    val observer = OnCoroutineDestroyObserver(this.lifecycleScope, context, start, block)
     this.lifecycle.addObserver(observer)
 }
 
-class OnDestroyLifecycleObserver(
+class OnCoroutineDestroyObserver(
     private val scope: LifecycleCoroutineScope,
     private val context: CoroutineContext = EmptyCoroutineContext,
     private val start: CoroutineStart = CoroutineStart.DEFAULT,
@@ -28,13 +28,11 @@ class OnDestroyLifecycleObserver(
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     fun onCreate() {
-        Log.d(TAG, "onCreate")
         mJob = scope.launch(context, start, block)
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     fun onDestroy() {
-        Log.d(TAG, "onDestroy")
         mJob?.cancel()
     }
 }
@@ -44,11 +42,11 @@ fun LifecycleOwner.launchOnStart(
     start: CoroutineStart = CoroutineStart.DEFAULT,
     block: suspend CoroutineScope.() -> Unit
 ) {
-    val observer = OnStopLifecycleObserver(this.lifecycleScope, context, start, block)
+    val observer = OnCoroutineStopObserver(this.lifecycleScope, context, start, block)
     this.lifecycle.addObserver(observer)
 }
 
-class OnStopLifecycleObserver(
+class OnCoroutineStopObserver(
     private val scope: LifecycleCoroutineScope,
     private val context: CoroutineContext = EmptyCoroutineContext,
     private val start: CoroutineStart = CoroutineStart.DEFAULT,
@@ -59,13 +57,11 @@ class OnStopLifecycleObserver(
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     fun onStart() {
-        Log.d(TAG, "onStart")
         mJob = scope.launch(context, start, block)
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     fun onStop() {
-        Log.d(TAG, "onStop")
         mJob?.cancel()
     }
 }
@@ -75,11 +71,11 @@ fun LifecycleOwner.launchOnResume(
     start: CoroutineStart = CoroutineStart.DEFAULT,
     block: suspend CoroutineScope.() -> Unit
 ) {
-    val observer = OnPauseLifecycleObserver(this.lifecycleScope, context, start, block)
+    val observer = OnCoroutinePauseObserver(this.lifecycleScope, context, start, block)
     this.lifecycle.addObserver(observer)
 }
 
-class OnPauseLifecycleObserver(
+class OnCoroutinePauseObserver(
     private val scope: LifecycleCoroutineScope,
     private val context: CoroutineContext = EmptyCoroutineContext,
     private val start: CoroutineStart = CoroutineStart.DEFAULT,
@@ -90,13 +86,11 @@ class OnPauseLifecycleObserver(
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     fun onResume() {
-        Log.d(TAG, "onResume")
         mJob = scope.launch(context, start, block)
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     fun onPause() {
-        Log.d(TAG, "onPause")
         mJob?.cancel()
     }
 }
