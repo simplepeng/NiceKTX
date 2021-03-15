@@ -2,10 +2,9 @@ package me.simple.ktx
 
 import android.graphics.Canvas
 import android.graphics.Paint
+import ktx.common.Desc
 
-/**
- * 画文字-以顶部为基准线
- */
+@Desc("画文字-以顶部为基准线","v1.0.1")
 fun Canvas.drawTextOnTop(
     text: String,
     x: Float,
@@ -17,9 +16,7 @@ fun Canvas.drawTextOnTop(
     this.drawText(text, x, newY, paint)
 }
 
-/**
- * 画文字-以底部为基准线
- */
+@Desc("画文字-以底部为基准线","v1.0.1")
 fun Canvas.drawTextOnBottom(
     text: String,
     x: Float,
