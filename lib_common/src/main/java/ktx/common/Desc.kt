@@ -4,7 +4,8 @@ package ktx.common
     AnnotationTarget.CLASS,
     AnnotationTarget.FUNCTION,
     AnnotationTarget.VALUE_PARAMETER,
-    AnnotationTarget.EXPRESSION
+    AnnotationTarget.EXPRESSION,
+    AnnotationTarget.PROPERTY
 )
 @Retention(AnnotationRetention.SOURCE)
 @MustBeDocumented

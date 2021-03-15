@@ -4,9 +4,7 @@ import android.graphics.Color
 import android.widget.TextView
 import ktx.common.Desc
 
-/**
- * 清空文本
- */
+@Desc("清空文本","1.0.0")
 fun TextView.clearText() {
     this.text = ""
 }
