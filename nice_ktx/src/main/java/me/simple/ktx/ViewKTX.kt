@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.annotation.ColorInt
 import androidx.core.view.ViewCompat
 import ktx.common.Desc
+import me.simple.ktx.helpers.BitmapHelper
 
 @Desc("隐藏View", "1.0")
 fun View.gone() {
@@ -225,6 +226,20 @@ var View.marginEnd: Int
             lp.rightMargin = value
         }
     }
+
+@Desc("设置缩放的背景图", "1.0.2")
+fun View.setScaleBackground(
+    resId: Int,
+    inSampleSize: Int = 2
+) {
+    val scaleDrawable = BitmapHelper.scaleBitmapDrawable(this.resources, resId, inSampleSize)
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+        this.background = scaleDrawable
+    } else {
+        this.setBackgroundDrawable(scaleDrawable)
+    }
+}
+
 
 
 
