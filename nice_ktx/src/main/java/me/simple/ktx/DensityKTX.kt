@@ -1,31 +1,43 @@
 package me.simple.ktx
 
+import android.app.Dialog
 import android.content.Context
 import android.content.res.Resources
 import android.util.TypedValue
+import android.view.View
 import ktx.common.Desc
 
-@Desc("dp转px", "1.0.2")
-fun Resources.dp2px(value: Float): Float {
-    return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, value, this.displayMetrics)
-}
+@Desc("Resources dp转px", "1.0.2")
+fun Resources.dp2px(value: Float) =
+    TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, value, this.displayMetrics)
 
-@Desc("sp转px", "1.0.2")
-fun Resources.sp2px(value: Float): Float {
-    return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, value, this.displayMetrics)
-}
+@Desc("Resources sp转px", "1.0.2")
+fun Resources.sp2px(value: Float) =
+    TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, value, this.displayMetrics)
 
-@Desc("dp转px", "1.0.2")
-fun Context.dp2px(value: Float): Float {
-    return this.resources.dp2px(value)
-}
 
-@Desc("sp转px", "1.0.2")
-fun Context.sp2px(value: Float): Float {
-    return this.resources.sp2px(value)
-}
+@Desc("View dp转px", "1.0.2")
+fun View.dp2px(value: Float) = this.resources.dp2px(value)
 
-@Desc("dp转px", "1.0.0", "1.0.2", "使用TypedValue")
+@Desc("View sp转px", "1.0.2")
+fun View.sp2px(value: Float) = this.resources.sp2px(value)
+
+
+@Desc("Context dp转px", "1.0.2")
+fun Context.dp2px(value: Float) = this.resources.dp2px(value)
+
+@Desc("Context sp转px", "1.0.2")
+fun Context.sp2px(value: Float) = this.resources.sp2px(value)
+
+
+@Desc("Dialog dp转px", "1.0.2")
+fun Dialog.dp2px(value: Float) = this.context.dp2px(value)
+
+@Desc("Dialog sp转px", "1.0.2")
+fun Dialog.sp2px(value: Float) = this.context.sp2px(value)
+
+
+@Desc("Number dp转px", "1.0.0", "1.0.2", "使用TypedValue")
 val Float.dp: Float
     get() = Resources.getSystem().dp2px(this)
 
@@ -38,7 +50,8 @@ val Long.dp: Long
 val Double.dp: Double
     get() = this.toFloat().dp.toDouble()
 
-@Desc("sp转px", "1.0.0", "1.0.2", "使用TypedValue")
+
+@Desc("Number sp转px", "1.0.0", "1.0.2", "使用TypedValue")
 val Float.sp: Float
     get() = Resources.getSystem().sp2px(this)
 

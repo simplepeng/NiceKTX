@@ -4,6 +4,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.OnLifecycleEvent
+import ktx.common.Desc
 import org.greenrobot.eventbus.EventBus
 
 /**
@@ -99,3 +100,9 @@ fun EventBus.safeUnregister(obj: Any) {
     if (!this.isRegistered(obj)) return
     this.unregister(obj)
 }
+
+@Desc("发布事件", "v1.0.2")
+fun Any.postEvent() = EventBus.getDefault().post(this)
+
+@Desc("发布粘性事件", "v1.0.2")
+fun Any.postStickyEvent() = EventBus.getDefault().postSticky(this)
