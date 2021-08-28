@@ -19,8 +19,21 @@ implementation 'me.simple:nice-ktx:1.0.0'
 
 ## BitmapKT
 
-* Bitmap.saveFile()：保存位图到本地文件
-* Bitmap.base64()：获取位图的base64
+* saveFile()：保存位图到本地文件
+* base64()：获取位图的base64
+
+## CanvasKT
+
+```kotlin
+drawTextOnTop() //画文字-以顶部为基准线
+drawTextOnBottom() //画文字-以底部为基准线
+```
+
+## CharSequenceKT
+
+```kotlin
+isNotNullAndEmpty() //判断字符串不是null也不是empty
+```
 
 ## ContextKT
 
@@ -40,8 +53,12 @@ implementation 'me.simple:nice-ktx:1.0.0'
 
 ## DensityKT
 
-* (Int/Long/Double/Float).dp ：dp 转 px
-* (Int/Long/Double/Float).sp ：sp 转 px 
+```kotlin
+(Int/Long/Double/Float).dp //dp 转 px
+(Int/Long/Double/Float).sp //sp 转 px 
+(Resources/Context/Dialog).dp2px() 
+(Resources/Context/Dialog).px2dp()
+```
 
 ## EditTextKT
 
