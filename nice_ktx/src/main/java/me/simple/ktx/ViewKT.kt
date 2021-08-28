@@ -12,31 +12,31 @@ import androidx.core.view.ViewCompat
 import ktx.common.Desc
 import me.simple.ktx.helpers.BitmapHelper
 
-@Desc("隐藏View", "1.0")
+@Desc("隐藏View", "v1.0.0")
 fun View.gone() {
     this.visibility = View.GONE
 }
 
-@Desc("显示View", "1.0")
+@Desc("显示View", "v1.0.0")
 fun View.visible() {
     this.visibility = View.VISIBLE
 }
 
-@Desc("隐藏View，保留位置", "1.0")
+@Desc("隐藏View，保留位置", "v1.0.0")
 fun View.invisible() {
     this.visibility = View.INVISIBLE
 }
 
-@Desc("从View的Context中获取Activity", "1.0")
+@Desc("从View的Context中获取Activity", "v1.0.0")
 val View.activity: Activity?
     get() = this.context.activity
 
-@Desc("点击事件", "1.0")
+@Desc("点击事件", "v1.0.0")
 fun View.click(block: (view: View) -> Unit) {
     this.setOnClickListener(block)
 }
 
-@Desc("防抖动点击事件", "1.0", "1.1", "interval修改为1s")
+@Desc("防抖动点击事件", "v1.0.0", "v1.0.1", "interval修改为1s")
 fun View.singleClick(
     interval: Int = 1000,
     block: (view: View) -> Unit
@@ -70,25 +70,25 @@ class SingleClickListener(
     }
 }
 
-@Desc("设置背景颜色", "1.0.1")
+@Desc("设置背景颜色", "v1.0.1")
 fun View.setBackgroundColor(colorStr: String) {
     this.setBackgroundColor(Color.parseColor(colorStr))
 }
 
 
-@Desc("是否是从右到左的布局", "1.0.2")
+@Desc("是否是从右到左的布局", "v1.0.2")
 fun View.isLayoutDirectionRTL(): Boolean {
     return ViewCompat.getLayoutDirection(this) == ViewCompat.LAYOUT_DIRECTION_RTL
 }
 
 
-@Desc("设置paddingTop", "1.0.2")
+@Desc("设置paddingTop", "v1.0.2")
 var View.paddingTop
     set(value) = this.setPadding(0, value, 0, 0)
     get() = this.paddingTop
 
 
-@Desc("设置paddingStart", "1.0.2")
+@Desc("设置paddingStart", "v1.0.2")
 var View.paddingStart
     set(value) {
         if (isLayoutDirectionRTL()) {
@@ -104,7 +104,7 @@ var View.paddingStart
         this.paddingLeft
     }
 
-@Desc("设置paddingEnd", "1.0.2")
+@Desc("设置paddingEnd", "v1.0.2")
 var View.paddingEnd
     set(value) {
         if (isLayoutDirectionRTL()) {
@@ -120,7 +120,7 @@ var View.paddingEnd
         this.paddingRight
     }
 
-@Desc("设置paddingBottom", "1.0.2")
+@Desc("设置paddingBottom", "v1.0.2")
 var View.paddingBottom
     set(value) = this.setPadding(0, 0, 0, value)
     get() = this.paddingBottom
@@ -135,7 +135,7 @@ private fun checkIsMarginLayoutParams(view: View) {
 }
 
 @SuppressLint("NewApi")
-@Desc("设置View的margin", "1.0.2")
+@Desc("设置View的margin", "v1.0.2")
 fun View.setMargin(
     start: Int,
     top: Int,
@@ -155,7 +155,7 @@ fun View.setMargin(
     }
 }
 
-@Desc("设置marginTop", "1.0.2")
+@Desc("设置marginTop", "v1.0.2")
 var View.marginTop: Int
     get() {
         checkIsMarginLayoutParams(this)
@@ -168,7 +168,7 @@ var View.marginTop: Int
         lp.topMargin = value
     }
 
-@Desc("设置marginBottom", "1.0.2")
+@Desc("设置marginBottom", "v1.0.2")
 var View.marginBottom: Int
     get() {
         checkIsMarginLayoutParams(this)
@@ -181,7 +181,7 @@ var View.marginBottom: Int
         lp.bottomMargin = value
     }
 
-@Desc("设置marginStart", "1.0.2")
+@Desc("设置marginStart", "v1.0.2")
 var View.marginStart: Int
     @SuppressLint("NewApi")
     get() {
@@ -204,7 +204,7 @@ var View.marginStart: Int
         }
     }
 
-@Desc("设置marginEnd", "1.0.2")
+@Desc("设置marginEnd", "v1.0.2")
 var View.marginEnd: Int
     @SuppressLint("NewApi")
     get() {
@@ -227,7 +227,7 @@ var View.marginEnd: Int
         }
     }
 
-@Desc("设置缩放的背景图", "1.0.2")
+@Desc("设置缩放的背景图", "v1.0.2")
 fun View.setScaleBackground(
     resId: Int,
     inSampleSize: Int = 2

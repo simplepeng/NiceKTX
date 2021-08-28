@@ -7,3 +7,4 @@ fun Any?.isNull() = this == null
 
 @Desc("判断对象是否为空", "1.0.1")
 fun Any?.isNotNull() = this != null
+

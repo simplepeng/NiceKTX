@@ -15,7 +15,6 @@ fun Resources.dp2px(value: Float) =
 fun Resources.sp2px(value: Float) =
     TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, value, this.displayMetrics)
 
-
 @Desc("View dp转px", "1.0.2")
 fun View.dp2px(value: Float) = this.resources.dp2px(value)
 

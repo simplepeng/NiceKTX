@@ -8,16 +8,21 @@
 implementation 'me.simple:nice-ktx:1.0.0'
 ```
 
-## ActivityKTX
+## ActivityKT
 
 * startActivity()：跳转Activity
 
-## BitmapKTX
+## AnyKT
+
+* isNull()
+* isNotNull
+
+## BitmapKT
 
 * Bitmap.saveFile()：保存位图到本地文件
 * Bitmap.base64()：获取位图的base64
 
-## ContextKTX
+## ContextKT
 
 * isConnected()： 网络是否连接
 * Context.activity： 从Context获取Activity
@@ -28,39 +33,39 @@ implementation 'me.simple:nice-ktx:1.0.0'
 * openMarket() ：打开应用商店，推荐使用我的另外一个开源库：[MarketHelper](https://github.com/simplepeng/MarketHelper)
 * copyText() ：复制文本
 
-## DateKTX
+## DateKT
 
 * Long.toDateString() : 毫秒转时间字符串
 * String.toMillis() ：时间字符串转毫秒
 
-## DensityKTX
+## DensityKT
 
 * (Int/Long/Double/Float).dp ：dp 转 px
 * (Int/Long/Double/Float).sp ：sp 转 px 
 
-## EditTextKTX
+## EditTextKT
 
 * isEmpty() ： EditText的文本为空
 * selectionEnd() ： 将光标移动至末尾
 * setTextAndSelectionEnd() ：设置文字，并将将光标移动至末尾
 * listenerTextChange() ：监听文本变化
 
-## SecureKTX
+## SecureKT
 
 * String?.md5 ：字符串转MD5
 * File?.md5 ： 文件的MD5
 * String.sha1 ： 字符串转sha1
 
-## TextViewKTX
+## TextViewKT
 
 * clearText() ： 清空文本
 
-## ToastKTX
+## ToastKT
 
 * toast() ： 短吐司
 * longToast() ：长吐司
 
-## ViewKTX
+## ViewKT
 
 * gone() ： 隐藏View
 * visible() ： 显示View
@@ -92,5 +97,4 @@ implementation 'me.simple:eventbus-ktx:1.0.2'
 * v1.0.1：去除`BuildConfig.class`
 
 * v1.0.0：首次上传
-
 
