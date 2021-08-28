@@ -34,9 +34,15 @@ android {
         implementation 'com.blankj:utilcodex:1.26.0'
         implementation 'com.hyman:flowlayout-lib:1.1.2'
 
-        implementation project(path: ':nice_ktx')
-        implementation project(path: ':eventbus_ktx')
-        implementation project(path: ':coroutine_ktx')
+//        implementation project(path: ':nice_ktx')
+//        implementation project(path: ':eventbus_ktx')
+//        implementation project(path: ':coroutine_ktx')
+        //原生扩展
+        implementation 'com.github.simplepeng.NiceKTX:nice_ktx:v1.0.2'
+        //eventbus扩展
+        implementation 'com.github.simplepeng.NiceKTX:eventbus_ktx:v1.0.2'
+        //协程扩展
+        implementation 'com.github.simplepeng.NiceKTX:coroutine_ktx:v1.0.2'
 
 //        implementation "me.simple:nice-ktx:1.0.0"
     }

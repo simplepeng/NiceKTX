@@ -5,14 +5,22 @@
 ## 导入依赖
 
 ```groovy
-implementation 'me.simple:nice-ktx:1.0.0'
+maven { url 'https://jitpack.io' }
+```
+
+```groovy
+implementation 'com.github.simplepeng.NiceKTX:nice_ktx:v1.0.2'
+//eventbus扩展
+implementation 'com.github.simplepeng.NiceKTX:eventbus_ktx:v1.0.2'
+//协程扩展
+implementation 'com.github.simplepeng.NiceKTX:coroutine_ktx:v1.0.2'
 ```
 
 ## ActivityKT
 
 * startActivity()：跳转Activity
 
-## AnyKT
+## AnyKT
 
 * isNull()
 * isNotNull
@@ -91,15 +99,7 @@ isNotNullAndEmpty() //判断字符串不是null也不是empty
 * click() ：点击事件
 * singleClick() ：防抖动单击事件
 
-### 版本迭代
-
-* v1.0.0：首次上传
-
 ## EventBusKTX
-
-```groovy
-implementation 'me.simple:eventbus-ktx:1.0.2'
-```
 
 * registerOnCreate() //在onCreate中注册事件，自动在onDestroy中注销事件
 * registerOnStart() //在onStart中注册事件，自动在onStop中注销事件
@@ -107,9 +107,9 @@ implementation 'me.simple:eventbus-ktx:1.0.2'
 * safeRegister() //安全调用注册方法
 * safeUnregister() //安全调用注销方法
 
-### 版本迭代
+## 版本迭代
 
-* v1.0.2：增加安全调用方法
+* v1.0.2：增加`EventBus`安全调用方法，上传至`jitpack`
 
 * v1.0.1：去除`BuildConfig.class`
 
