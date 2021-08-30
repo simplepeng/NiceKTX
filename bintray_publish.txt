@@ -1,6 +1,0 @@
-#!/bin/bash
-echo "----------------------------------start----------------------------------"
-
-./gradlew clean build bintrayUpload -PbintrayUser=simplepeng -PbintrayKey=xxxxx -PdryRun=false
-
-echo "----------------------------------finish----------------------------------"
