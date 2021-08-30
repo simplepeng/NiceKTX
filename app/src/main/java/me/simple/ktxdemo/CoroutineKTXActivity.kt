@@ -2,31 +2,33 @@ package me.simple.ktxdemo
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_coroutine_ktx.*
-import me.simple.ktx.launchOnCreate
-import me.simple.ktx.launchOnResume
-import me.simple.ktx.launchOnStart
+import me.simple.ktx.coroutine.launchOnCreate
+import me.simple.ktx.coroutine.launchOnResume
+import me.simple.ktx.coroutine.launchOnStart
 import me.simple.ktx.singleClick
+import me.simple.ktxdemo.databinding.ActivityCoroutineKtxBinding
 
 class CoroutineKTXActivity : AppCompatActivity() {
 
+    private val mBinding by lazy { ActivityCoroutineKtxBinding.inflate(this.layoutInflater) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_coroutine_ktx)
+        setContentView(mBinding.root)
 
-        btnLaunchOnCreate.singleClick {
+        mBinding.btnLaunchOnCreate.singleClick {
             launchOnCreate {
 
             }
         }
 
-        btnLaunchOnStart.singleClick {
+        mBinding.btnLaunchOnStart.singleClick {
             launchOnStart {
 
             }
         }
 
-        btnLaunchOnResume.singleClick {
+        mBinding.btnLaunchOnResume.singleClick {
             launchOnResume {
 
             }

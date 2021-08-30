@@ -1,5 +1,17 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+rootProject.name = 'NiceKTX'
+include ':app'
+include ':nice_ktx'
 include ':lib_common'
 include ':eventbus_ktx'
 include ':coroutine_ktx'
-include ':app', ':nice_ktx'
-rootProject.name='NiceKTX'
+

@@ -1,4 +1,4 @@
-package me.simple.ktx
+package me.simple.ktx.eventbus
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver

@@ -79,5 +79,5 @@ fun Context.copyText(
 ) {
     val cm = this.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
     val clipData = ClipData.newPlainText(label, text)
-    cm.primaryClip = clipData
+    cm.setPrimaryClip(clipData)
 }

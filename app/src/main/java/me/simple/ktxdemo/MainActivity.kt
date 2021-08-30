@@ -5,8 +5,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import me.simple.ktx.safeRegister
-import me.simple.ktx.safeUnregister
+import me.simple.ktx.eventbus.safeRegister
+import me.simple.ktx.eventbus.safeUnregister
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import kotlin.reflect.KClass

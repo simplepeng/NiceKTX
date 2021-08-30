@@ -3,11 +3,9 @@ package me.simple.ktx
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.graphics.Color
-import android.graphics.drawable.GradientDrawable
 import android.os.Build
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.ColorInt
 import androidx.core.view.ViewCompat
 import ktx.common.Desc
 import me.simple.ktx.helpers.BitmapHelper
