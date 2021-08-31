@@ -51,14 +51,14 @@ isNotNullAndEmpty() //判断字符串不是null也不是empty
 ## ContextKT
 
 ```kotlin
-isConnected()         //网络是否连接
-Context.activity      //从Context获取Activity
-Context.screenWidth	  //屏幕宽度
-Context.screenHeight  //屏幕高度
-openWeb()             //打开网页
-sendEmail()           //发送Email
-openMarket()          //打开应用商店，推荐使用我的另外一个开源库：[MarketHelper](https://github.com/simplepeng/MarketHelper)
-copyText()            //复制文本
+isConnected()           //网络是否连接
+Context.activity        //从Context获取Activity
+Context.screenWidth     //屏幕宽度
+Context.screenHeight    //屏幕高度
+openWeb()               //打开网页
+sendEmail()             //发送Email
+openMarket()            //打开应用商店，推荐使用我的另外一个开源库：[MarketHelper](https://github.com/simplepeng/MarketHelper)
+copyText()              //复制文本
 ```
 
 ## DateKT
