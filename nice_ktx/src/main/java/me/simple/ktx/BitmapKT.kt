@@ -1,6 +1,7 @@
 package me.simple.ktx
 
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.util.Base64
 import ktx.common.Desc
 import java.io.ByteArrayOutputStream
@@ -21,7 +22,7 @@ fun Bitmap.saveFile(
     out.close()
 }
 
-@Desc("Bitmap装base64", "v1.0.1")
+@Desc("Bitmap转base64", "v1.0.1")
 fun Bitmap.base64(
     quality: Int = 100,
     format: Bitmap.CompressFormat = Bitmap.CompressFormat.PNG
@@ -32,4 +33,10 @@ fun Bitmap.base64(
 
     val encode = Base64.encode(bytes, Base64.DEFAULT)
     return String(encode)
+}
+
+@Desc("base64转Bitmap", "v1.0.4")
+fun String.toBitmap(flags: Int = Base64.DEFAULT): Bitmap {
+    val bytes = Base64.decode(this, flags)
+    return BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
 }
