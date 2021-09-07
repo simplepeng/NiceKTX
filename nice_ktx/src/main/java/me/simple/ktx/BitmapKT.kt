@@ -22,16 +22,17 @@ fun Bitmap.saveFile(
     out.close()
 }
 
-@Desc("Bitmap转base64", "v1.0.1")
+@Desc("Bitmap转base64", "v1.0.1", "v1.0.4", "支持flags")
 fun Bitmap.base64(
     quality: Int = 100,
-    format: Bitmap.CompressFormat = Bitmap.CompressFormat.PNG
+    format: Bitmap.CompressFormat = Bitmap.CompressFormat.PNG,
+    flags: Int = Base64.DEFAULT
 ): String {
     val bos = ByteArrayOutputStream()
     this.compress(format, quality, bos)
     val bytes = bos.toByteArray()
 
-    val encode = Base64.encode(bytes, Base64.DEFAULT)
+    val encode = Base64.encode(bytes, flags)
     return String(encode)
 }
 
