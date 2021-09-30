@@ -2,6 +2,7 @@ package me.simple.ktx
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Matrix
 import android.util.Base64
 import ktx.common.Desc
 import java.io.ByteArrayOutputStream
@@ -40,4 +41,26 @@ fun Bitmap.base64(
 fun String.toBitmap(flags: Int = Base64.DEFAULT): Bitmap {
     val bytes = Base64.decode(this, flags)
     return BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
+}
+
+@Desc("按比例缩放Bitmap", "v1.0.4")
+fun Bitmap.scale(
+    sx: Float,
+    sy: Float,
+    filter: Boolean = false
+): Bitmap {
+    val matrix = Matrix()
+    matrix.postScale(sx, sy)
+    return Bitmap.createBitmap(this, 0, 0, this.width, this.height, matrix, filter)
+}
+
+@Desc("按大小缩放Bitmap", "v1.0.4")
+fun Bitmap.scale(
+    newWidth: Int,
+    newHeight: Int,
+    filter: Boolean = false
+): Bitmap {
+    val sx = newWidth.toFloat() / this.width
+    val sy = newHeight.toFloat() / this.height
+    return scale(sx, sy, filter)
 }
