@@ -1,8 +1,6 @@
 package me.simple.ktx
 
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.graphics.Matrix
+import android.graphics.*
 import android.util.Base64
 import ktx.common.Desc
 import java.io.ByteArrayOutputStream
@@ -63,4 +61,21 @@ fun Bitmap.scale(
     val sx = newWidth.toFloat() / this.width
     val sy = newHeight.toFloat() / this.height
     return scale(sx, sy, filter)
+}
+
+@Desc("添加水印", "v1.0.4")
+fun Bitmap.addWatermark(
+    watermark: Bitmap,
+    x: Float,
+    y: Float,
+    newWidth: Int = watermark.width,
+    newHeight: Int = watermark.height,
+    alpha: Int = 255
+) {
+    val canvas = Canvas(this)
+    val paint = Paint(Paint.ANTI_ALIAS_FLAG)
+    paint.alpha = alpha
+//    canvas.drawBitmap(watermark, x, y, paint)
+    val dstRect = RectF(x, y, x + newWidth, y + newHeight)
+    canvas.drawBitmap(watermark, null, dstRect, paint)
 }
