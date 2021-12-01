@@ -33,12 +33,13 @@ fun Canvas.drawTextOnCenter(
     text: String,
     x: Float,
     y: Float,
-    paint: Paint
+    paint: Paint,
+    textAlign: Paint.Align = Paint.Align.CENTER
 ) {
     val tmpAlign = paint.textAlign
     val fm = paint.fontMetrics
     val newY = y + ((fm.descent - fm.ascent) / 2 - fm.descent)
-    paint.textAlign = Paint.Align.CENTER
+    paint.textAlign = textAlign
     this.drawText(text, x, newY, paint)
     paint.textAlign = tmpAlign
 }
