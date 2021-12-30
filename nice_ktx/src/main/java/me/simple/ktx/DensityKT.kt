@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.res.Resources
 import android.util.TypedValue
 import android.view.View
+import androidx.fragment.app.Fragment
 import ktx.common.Desc
 
 //---------------
@@ -50,6 +51,20 @@ fun Context.px2dp(pxValue: Float) = this.resources.px2dp(pxValue)
 
 @Desc("Context px转sp", "1.0.4")
 fun Context.px2sp(pxValue: Float) = this.resources.px2sp(pxValue)
+
+//---------------
+
+@Desc("Context dp转px", "1.0.2")
+fun Fragment.dp2px(value: Float) = this.resources.dp2px(value)
+
+@Desc("Context sp转px", "1.0.2")
+fun Fragment.sp2px(value: Float) = this.resources.sp2px(value)
+
+@Desc("Context px转dp", "1.0.4")
+fun Fragment.px2dp(pxValue: Float) = this.resources.px2dp(pxValue)
+
+@Desc("Context px转sp", "1.0.4")
+fun Fragment.px2sp(pxValue: Float) = this.resources.px2sp(pxValue)
 
 //---------------
 
