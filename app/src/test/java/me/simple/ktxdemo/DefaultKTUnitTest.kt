@@ -10,6 +10,7 @@ class DefaultKTUnitTest {
 
         val bool: Boolean? = null
         println("bool = ${bool.orDefault(false)}")
+        bool?.let {  }
 
         val str: String? = null
         println("str = ${str.orDefault("haha")}")
