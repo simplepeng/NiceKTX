@@ -21,5 +21,10 @@ fun <T : Number> T?.orDefault(defValue: T): T {
     return this ?: defValue
 }
 
+@Desc("默认值填充", "v1.0.4")
+fun <T> T?.orDefault(defValue: T): T {
+    return this ?: defValue
+}
+
 
 
