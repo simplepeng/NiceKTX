@@ -176,6 +176,14 @@ nextPage()  //下一页
 prePage()   //上一页
 ```
 
+### CoroutineKT
+
+```kotlin
+LifecycleOwner.launchOnCreate() 	//自动在onDestroy取消Job
+LifecycleOwner.launchOnStart()  	//自动在onStop取消Job
+LifecycleOwner.launchOnResume() 	//自动在onPause取消Job
+```
+
 ## 版本迭代
 
 * v1.0.3：更新gradle版本，适配java11
