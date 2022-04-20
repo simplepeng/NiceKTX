@@ -46,8 +46,9 @@ addWatermark()              //添加水印
 ### CanvasKT
 
 ```kotlin
-drawTextOnTop()    //画文字-以顶部为基准线
-drawTextOnBottom() //画文字-以底部为基准线
+drawTextOnTop()         //画文字-以顶部为基准线
+drawTextOnBottom()      //画文字-以底部为基准线
+drawTextOnCenter()      //画文字-以中心点为基准
 ```
 
 ### CharSequenceKT
@@ -76,13 +77,21 @@ Long.toDateString()     //毫秒转时间字符串
 String.toMillis()       //时间字符串转毫秒
 ```
 
+### DefaultKT
+
+```kotlin
+Boolean?.orDefault()        //布尔值的默认值填充
+String?.orDefault()         //字符串的默认值填充
+T?.orDefault()              //默认值填充
+```
+
 ### DensityKT
 
 ```kotlin
 (Int/Long/Double/Float).dp              //dp 转 px
 (Int/Long/Double/Float).sp              //sp 转 px 
-(Resources/Context/Dialog).dp2px()      //
-(Resources/Context/Dialog).px2dp()      //
+(Context/Fragment/Dialog/View/Resources).dp2px()      //
+(Context/Fragment/Dialog/View/Resources).px2dp()      //
 ```
 
 ### EditTextKT
@@ -105,7 +114,8 @@ String.sha1     //字符串转sha1
 ### TextViewKT
 
 ```kotlin
-clearText() //清空文本
+clearText()                 //清空文本
+setTextColor("#000000")     //设置文字颜色
 ```
 
 ### ToastKT
@@ -124,6 +134,20 @@ invisible()     //隐藏View，保留位置
 getActivity()   //从View的Context中获取Activity
 click()         //点击事件
 singleClick()   //防抖动单击事件
+```
+
+### UriKT
+
+```kotlin
+Int.toUri()                 //将res-raw目录下的资源转换成Uri
+Context.rawIdToUri()        //将res-raw目录下的资源转换成Uri
+```
+
+### WebViewKT
+
+```kotlin
+loadAsset()     //加载asset目录下的html文件
+callJsMethod()  //调用js的方法
 ```
 
 ### EventBusKT
