@@ -53,6 +53,8 @@ dependencies {
     implementation project(path: ':nice_ktx')
     implementation project(path: ':eventbus_ktx')
     implementation project(path: ':coroutine_ktx')
+    implementation project(path: ':recyclerview_ktx')
+    implementation project(path: ':viewpager_ktx')
 
 //    def nice_ktx = "v1.0.3"
 //    implementation "com.github.simplepeng.NiceKTX:nice_ktx:$nice_ktx"

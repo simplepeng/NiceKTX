@@ -5,9 +5,11 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import ktx.common.Desc
 import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.EmptyCoroutineContext
 
+@Desc(desc = "自动在onDestroy取消Job", createVersion = "v1.0.4")
 fun LifecycleOwner.launchOnCreate(
     context: CoroutineContext = EmptyCoroutineContext,
     start: CoroutineStart = CoroutineStart.DEFAULT,
@@ -22,21 +24,22 @@ class OnCoroutineDestroyObserver(
     private val context: CoroutineContext = EmptyCoroutineContext,
     private val start: CoroutineStart = CoroutineStart.DEFAULT,
     private val block: suspend CoroutineScope.() -> Unit
-) : LifecycleObserver {
+) : DefaultLifecycleObserver {
 
     private var mJob: Job? = null
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
-    fun onCreate() {
+    override fun onCreate(owner: LifecycleOwner) {
+        super.onCreate(owner)
         mJob = scope.launch(context, start, block)
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-    fun onDestroy() {
+    override fun onDestroy(owner: LifecycleOwner) {
+        super.onDestroy(owner)
         mJob?.cancel()
     }
 }
 
+@Desc(desc = "自动在onStop取消Job", createVersion = "v1.0.4")
 fun LifecycleOwner.launchOnStart(
     context: CoroutineContext = EmptyCoroutineContext,
     start: CoroutineStart = CoroutineStart.DEFAULT,
@@ -51,21 +54,22 @@ class OnCoroutineStopObserver(
     private val context: CoroutineContext = EmptyCoroutineContext,
     private val start: CoroutineStart = CoroutineStart.DEFAULT,
     private val block: suspend CoroutineScope.() -> Unit
-) : LifecycleObserver {
+) : DefaultLifecycleObserver {
 
     private var mJob: Job? = null
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_START)
-    fun onStart() {
+    override fun onStart(owner: LifecycleOwner) {
+        super.onStart(owner)
         mJob = scope.launch(context, start, block)
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
-    fun onStop() {
+    override fun onStop(owner: LifecycleOwner) {
+        super.onStop(owner)
         mJob?.cancel()
     }
 }
 
+@Desc(desc = "自动在onPause取消Job", createVersion = "v1.0.4")
 fun LifecycleOwner.launchOnResume(
     context: CoroutineContext = EmptyCoroutineContext,
     start: CoroutineStart = CoroutineStart.DEFAULT,
@@ -80,17 +84,17 @@ class OnCoroutinePauseObserver(
     private val context: CoroutineContext = EmptyCoroutineContext,
     private val start: CoroutineStart = CoroutineStart.DEFAULT,
     private val block: suspend CoroutineScope.() -> Unit
-) : LifecycleObserver {
+) : DefaultLifecycleObserver {
 
     private var mJob: Job? = null
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    fun onResume() {
+    override fun onResume(owner: LifecycleOwner) {
+        super.onResume(owner)
         mJob = scope.launch(context, start, block)
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-    fun onPause() {
+    override fun onPause(owner: LifecycleOwner) {
+        super.onPause(owner)
         mJob?.cancel()
     }
 }
