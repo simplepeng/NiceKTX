@@ -33,5 +33,6 @@ android {
 }
 
 dependencies {
+    implementation project(path: ':lib_common')
     implementation("androidx.recyclerview:recyclerview:1.2.1")
 }
