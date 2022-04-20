@@ -9,9 +9,13 @@ maven { url 'https://jitpack.io' }
 ```
 
 ```groovy
+//版本号
 def nice_ktx = "v1.0.3"
+//常用的扩展函数
 implementation "com.github.simplepeng.NiceKTX:nice_ktx:$nice_ktx"
+//EventBus的扩展
 implementation "com.github.simplepeng.NiceKTX:eventbus_ktx:$nice_ktx"
+//协程的扩展
 implementation "com.github.simplepeng.NiceKTX:coroutine_ktx:$nice_ktx"
 ```
 
@@ -31,8 +35,12 @@ isNotNull()     //是否不为空
 ### BitmapKT
 
 ```kotlin
-saveFile()  //保存位图到本地文件
-base64()    //获取位图的base64
+saveFile()                  //保存位图到本地文件
+base64()                    //获取位图的base64
+String.toBimtp()            //base64转Bitmap
+scale(sx,sy)                //按比例缩放Bitmap
+scale(newWidth,newHeight)   //按大小缩放Bitmap
+addWatermark()              //添加水印
 ```
 
 ### CanvasKT
@@ -126,6 +134,22 @@ registerOnStart()   //在onStart中注册事件，自动在onStop中注销事件
 registerOnResume()  //在onResume中注册事件，自动在onPause中注销事件
 safeRegister()      //安全调用注册方法
 safeUnregister()    //安全调用注销方法
+```
+
+### RecyclerViewKT
+
+```kotlin
+linear()
+grid()
+staggered()
+```
+
+ ### ViewPagerKT
+
+```kotlin
+//同时支持ViewPage2
+nextPage()  //下一页
+prePage()   //上一页
 ```
 
 ## 版本迭代

@@ -68,14 +68,14 @@ fun Bitmap.addWatermark(
     watermark: Bitmap,
     x: Float,
     y: Float,
-    newWidth: Int = watermark.width,
-    newHeight: Int = watermark.height,
+    markW: Int = watermark.width,
+    markH: Int = watermark.height,
     alpha: Int = 255
 ) {
     val canvas = Canvas(this)
     val paint = Paint(Paint.ANTI_ALIAS_FLAG)
     paint.alpha = alpha
 //    canvas.drawBitmap(watermark, x, y, paint)
-    val dstRect = RectF(x, y, x + newWidth, y + newHeight)
+    val dstRect = RectF(x, y, x + markW, y + markH)
     canvas.drawBitmap(watermark, null, dstRect, paint)
 }
