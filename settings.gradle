@@ -14,4 +14,4 @@ include ':nice_ktx'
 include ':lib_common'
 include ':eventbus_ktx'
 include ':coroutine_ktx'
-
+include ':recyclerview_ktx'

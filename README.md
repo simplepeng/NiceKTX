@@ -15,40 +15,40 @@ implementation "com.github.simplepeng.NiceKTX:eventbus_ktx:$nice_ktx"
 implementation "com.github.simplepeng.NiceKTX:coroutine_ktx:$nice_ktx"
 ```
 
-## ActivityKT
+### ActivityKT
 
 ```kotlin
 startActivity() //跳转Activity
 ```
 
-## AnyKT
+### AnyKT
 
 ```kotlin
 isNull()        //是否为空
 isNotNull()     //是否不为空
 ```
 
-## BitmapKT
+### BitmapKT
 
 ```kotlin
 saveFile()  //保存位图到本地文件
 base64()    //获取位图的base64
 ```
 
-## CanvasKT
+### CanvasKT
 
 ```kotlin
 drawTextOnTop()    //画文字-以顶部为基准线
 drawTextOnBottom() //画文字-以底部为基准线
 ```
 
-## CharSequenceKT
+### CharSequenceKT
 
 ```kotlin
 isNotNullAndEmpty() //判断字符串不是null也不是empty
 ```
 
-## ContextKT
+### ContextKT
 
 ```kotlin
 isConnected()           //网络是否连接
@@ -61,14 +61,14 @@ openMarket()            //打开应用商店，推荐使用我的另外一个开
 copyText()              //复制文本
 ```
 
-## DateKT
+### DateKT
 
 ```kotlin
 Long.toDateString()     //毫秒转时间字符串
 String.toMillis()       //时间字符串转毫秒
 ```
 
-## DensityKT
+### DensityKT
 
 ```kotlin
 (Int/Long/Double/Float).dp              //dp 转 px
@@ -77,7 +77,7 @@ String.toMillis()       //时间字符串转毫秒
 (Resources/Context/Dialog).px2dp()      //
 ```
 
-## EditTextKT
+### EditTextKT
 
 ```kotlin
 isEmpty()                   //EditText的文本为空
@@ -86,7 +86,7 @@ setTextAndSelectionEnd()    //设置文字，并将将光标移动至末尾
 listenerTextChange()        //监听文本变化
 ```
 
-## SecureKT
+### SecureKT
 
 ```kotlin
 String?.md5     //字符串转MD5
@@ -94,20 +94,20 @@ File?.md5       //文件的MD5
 String.sha1     //字符串转sha1
 ```
 
-## TextViewKT
+### TextViewKT
 
 ```kotlin
 clearText() //清空文本
 ```
 
-## ToastKT
+### ToastKT
 
 ```kotlin
 toast()     //短吐司
 longToast() //长吐司
 ```
 
-## ViewKT
+### ViewKT
 
 ```kotlin
 gone()          //隐藏View
@@ -118,7 +118,7 @@ click()         //点击事件
 singleClick()   //防抖动单击事件
 ```
 
-## EventBusKT
+### EventBusKT
 
 ```kotlin
 registerOnCreate()  //在onCreate中注册事件，自动在onDestroy中注销事件
