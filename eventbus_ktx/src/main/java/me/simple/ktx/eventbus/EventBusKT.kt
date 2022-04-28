@@ -4,9 +4,7 @@ import androidx.lifecycle.*
 import ktx.common.Desc
 import org.greenrobot.eventbus.EventBus
 
-/**
- * 在onCreate中注册事件，自动在onDestroy中注销事件
- */
+@Desc("在onCreate中注册事件，自动在onDestroy中注销事件")
 fun <T : LifecycleOwner> EventBus.registerOnCreate(owner: T) {
     if (this.isRegistered(owner)) return
     owner.lifecycle.addObserver(OnCreateLifecycleObserver(this, owner))
@@ -30,9 +28,7 @@ class OnCreateLifecycleObserver<T>(
     }
 }
 
-/**
- * 在onStart中注册事件，自动在onStop中注销事件
- */
+@Desc("在onStart中注册事件，自动在onStop中注销事件")
 fun <T : LifecycleOwner> EventBus.registerOnStart(owner: T) {
     if (this.isRegistered(owner)) return
     owner.lifecycle.addObserver(OnStartLifecycleObserver(this, owner))
@@ -56,9 +52,7 @@ class OnStartLifecycleObserver<T>(
     }
 }
 
-/**
- * 在onResume中注册事件，自动在onPause中注销事件
- */
+@Desc("在onResume中注册事件，自动在onPause中注销事件")
 fun <T : LifecycleOwner> EventBus.registerOnResume(owner: T) {
     if (this.isRegistered(owner)) return
     owner.lifecycle.addObserver(OnResumeLifecycleObserver(this, owner))
@@ -82,24 +76,20 @@ class OnResumeLifecycleObserver<T>(
     }
 }
 
-/**
- * 安全调用注册方法
- */
+@Desc("安全调用注册方法")
 fun EventBus.safeRegister(obj: Any) {
     if (this.isRegistered(obj)) return
     this.register(obj)
 }
 
-/**
- * 安全调用注销方法
- */
+@Desc("安全调用注销方法")
 fun EventBus.safeUnregister(obj: Any) {
     if (!this.isRegistered(obj)) return
     this.unregister(obj)
 }
 
-@Desc("发布事件", "v1.0.2")
+@Desc("发布事件")
 fun postEvent(event: Any) = EventBus.getDefault().post(event)
 
-@Desc("发布粘性事件", "v1.0.2")
+@Desc("发布粘性事件")
 fun postStickyEvent(event: Any) = EventBus.getDefault().postSticky(event)
