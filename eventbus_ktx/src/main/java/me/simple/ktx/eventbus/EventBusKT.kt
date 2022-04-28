@@ -1,9 +1,6 @@
 package me.simple.ktx.eventbus
 
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.OnLifecycleEvent
+import androidx.lifecycle.*
 import ktx.common.Desc
 import org.greenrobot.eventbus.EventBus
 
@@ -18,16 +15,16 @@ fun <T : LifecycleOwner> EventBus.registerOnCreate(owner: T) {
 class OnCreateLifecycleObserver<T>(
     private val eventBus: EventBus,
     private val owner: T
-) : LifecycleObserver {
+) : DefaultLifecycleObserver {
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
-    fun onCreate() {
+    override fun onCreate(owner: LifecycleOwner) {
+        super.onCreate(owner)
         if (eventBus.isRegistered(owner)) return
         eventBus.register(owner)
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-    fun onDestroy() {
+    override fun onDestroy(owner: LifecycleOwner) {
+        super.onDestroy(owner)
         if (!eventBus.isRegistered(owner)) return
         eventBus.unregister(owner)
     }
@@ -44,16 +41,16 @@ fun <T : LifecycleOwner> EventBus.registerOnStart(owner: T) {
 class OnStartLifecycleObserver<T>(
     private val eventBus: EventBus,
     private val owner: T
-) : LifecycleObserver {
+) : DefaultLifecycleObserver {
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_START)
-    fun onStart() {
+    override fun onStart(owner: LifecycleOwner) {
+        super.onStart(owner)
         if (eventBus.isRegistered(owner)) return
         eventBus.register(owner)
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
-    fun onStop() {
+    override fun onStop(owner: LifecycleOwner) {
+        super.onStop(owner)
         if (!eventBus.isRegistered(owner)) return
         eventBus.unregister(owner)
     }
@@ -70,16 +67,16 @@ fun <T : LifecycleOwner> EventBus.registerOnResume(owner: T) {
 class OnResumeLifecycleObserver<T>(
     private val eventBus: EventBus,
     private val owner: T
-) : LifecycleObserver {
+) : DefaultLifecycleObserver {
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    fun onResume() {
+    override fun onResume(owner: LifecycleOwner) {
+        super.onResume(owner)
         if (eventBus.isRegistered(owner)) return
         eventBus.register(owner)
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-    fun onPause() {
+    override fun onPause(owner: LifecycleOwner) {
+        super.onPause(owner)
         if (!eventBus.isRegistered(owner)) return
         eventBus.unregister(owner)
     }
@@ -102,7 +99,7 @@ fun EventBus.safeUnregister(obj: Any) {
 }
 
 @Desc("发布事件", "v1.0.2")
-fun Any.postEvent() = EventBus.getDefault().post(this)
+fun postEvent(event: Any) = EventBus.getDefault().post(event)
 
 @Desc("发布粘性事件", "v1.0.2")
-fun Any.postStickyEvent() = EventBus.getDefault().postSticky(this)
+fun postStickyEvent(event: Any) = EventBus.getDefault().postSticky(event)
