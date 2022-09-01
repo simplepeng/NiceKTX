@@ -151,6 +151,7 @@ fun View.setMargin(
         lp.leftMargin = start
         lp.rightMargin = end
     }
+    this.layoutParams = lp
 }
 
 @Desc("设置marginTop", "v1.0.2")
@@ -164,6 +165,7 @@ var View.marginTop: Int
         checkIsMarginLayoutParams(this)
         val lp = this.layoutParams as ViewGroup.MarginLayoutParams
         lp.topMargin = value
+        this.layoutParams = lp
     }
 
 @Desc("设置marginBottom", "v1.0.2")
@@ -177,6 +179,7 @@ var View.marginBottom: Int
         checkIsMarginLayoutParams(this)
         val lp = this.layoutParams as ViewGroup.MarginLayoutParams
         lp.bottomMargin = value
+        this.layoutParams = lp
     }
 
 @Desc("设置marginStart", "v1.0.2")
@@ -200,6 +203,7 @@ var View.marginStart: Int
         } else {
             lp.leftMargin = value
         }
+        this.layoutParams = lp
     }
 
 @Desc("设置marginEnd", "v1.0.2")
@@ -223,6 +227,7 @@ var View.marginEnd: Int
         } else {
             lp.rightMargin = value
         }
+        this.layoutParams = lp
     }
 
 @Desc("设置缩放的背景图", "v1.0.2")
