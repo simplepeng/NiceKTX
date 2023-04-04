@@ -32,7 +32,7 @@ fun String.toMillis(format: String = yyyy_MM_dd_HH_mm_ss): Long {
 
 private fun string2Millis(time: String, format: DateFormat): Long {
     try {
-        return format.parse(time).time
+        return format.parse(time)!!.time
     } catch (e: ParseException) {
         e.printStackTrace()
     }

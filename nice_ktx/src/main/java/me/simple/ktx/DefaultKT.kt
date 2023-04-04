@@ -2,10 +2,6 @@ package me.simple.ktx
 
 import ktx.common.Desc
 
-/**
- * Null变量填充默认值
- */
-
 @Desc("布尔值的默认值填充", "v1.0.4")
 fun Boolean?.orDefault(defValue: Boolean = true): Boolean {
     return this ?: defValue
