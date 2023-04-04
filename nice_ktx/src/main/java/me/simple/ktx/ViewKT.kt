@@ -243,6 +243,9 @@ fun View.setScaleBackground(
     }
 }
 
+@Desc("检查View是否有父布局", "v1.0.4")
+fun View.hasParent() = this.parent == null
+
 
 
 

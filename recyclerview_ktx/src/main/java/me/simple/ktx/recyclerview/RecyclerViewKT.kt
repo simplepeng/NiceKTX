@@ -30,3 +30,10 @@ fun RecyclerView.staggered(
 ) {
     this.layoutManager = StaggeredGridLayoutManager(spanCount, orientation)
 }
+
+@Desc("删除所有ItemDecoration","v1.0.4")
+fun RecyclerView.removeAllItemDecoration() {
+    for (index in 0 until itemDecorationCount) {
+        removeItemDecorationAt(index)
+    }
+}
