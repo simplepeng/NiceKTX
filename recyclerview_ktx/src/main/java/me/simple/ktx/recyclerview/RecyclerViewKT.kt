@@ -31,9 +31,31 @@ fun RecyclerView.staggered(
     this.layoutManager = StaggeredGridLayoutManager(spanCount, orientation)
 }
 
-@Desc("删除所有ItemDecoration","v1.0.4")
+@Desc("删除所有ItemDecoration", "v1.0.4")
 fun RecyclerView.removeAllItemDecoration() {
     for (index in 0 until itemDecorationCount) {
         removeItemDecorationAt(index)
+    }
+}
+
+@Desc("滚动到末尾", "v1.0.4")
+fun RecyclerView.scrollToEnd(smooth: Boolean = true) {
+    val itemCount = adapter?.itemCount ?: 0
+    if (itemCount <= 0) return
+    if (smooth) {
+        this.smoothScrollToPosition(itemCount - 1)
+    } else {
+        this.scrollToPosition(itemCount - 1)
+    }
+}
+
+@Desc("滚动到开始", "v1.0.4")
+fun RecyclerView.scrollToStart(smooth: Boolean = true) {
+    val itemCount = adapter?.itemCount ?: 0
+    if (itemCount <= 0) return
+    if (smooth) {
+        this.smoothScrollToPosition(0)
+    } else {
+        this.scrollToPosition(0)
     }
 }
