@@ -1,7 +1,9 @@
 package me.simple.ktx
 
 import android.view.animation.Animation
+import ktx.common.Desc
 
+@Desc("","v1.0.4")
 fun Animation.onAnimationEnd(block: () -> Unit) {
     this.setAnimationListener(object : Animation.AnimationListener {
         override fun onAnimationStart(animation: Animation?) {
@@ -16,6 +18,7 @@ fun Animation.onAnimationEnd(block: () -> Unit) {
     })
 }
 
+@Desc("","v1.0.4")
 fun Animation.onAnimationStart(block: () -> Unit) {
     this.setAnimationListener(object : Animation.AnimationListener {
         override fun onAnimationStart(animation: Animation?) {
@@ -31,6 +34,7 @@ fun Animation.onAnimationStart(block: () -> Unit) {
     })
 }
 
+@Desc("","v1.0.4")
 fun Animation.onAnimationRepeat(block: () -> Unit) {
     this.setAnimationListener(object : Animation.AnimationListener {
         override fun onAnimationStart(animation: Animation?) {
