@@ -73,55 +73,38 @@ fun View.setBackgroundColor(colorStr: String) {
     this.setBackgroundColor(Color.parseColor(colorStr))
 }
 
-
 @Desc("是否是从右到左的布局", "v1.0.2")
 fun View.isLayoutDirectionRTL(): Boolean {
     return ViewCompat.getLayoutDirection(this) == ViewCompat.LAYOUT_DIRECTION_RTL
 }
 
-
 @Desc("设置paddingTop", "v1.0.2")
-var View.paddingTop
-    set(value) = this.setPadding(0, value, 0, 0)
-    get() = this.paddingTop
-
+fun View.setPaddingTop(value: Int) {
+    this.setPadding(0, value, 0, 0)
+}
 
 @Desc("设置paddingStart", "v1.0.2")
-var View.paddingStart
-    set(value) {
-        if (isLayoutDirectionRTL()) {
-            this.setPadding(0, 0, value, 0)
-        } else {
-            this.setPadding(value, 0, 0, 0)
-        }
-    }
-    @SuppressLint("NewApi")
-    get() = if (isLayoutDirectionRTL()) {
-        this.paddingStart
+fun View.setPaddingStart(value: Int) {
+    if (isLayoutDirectionRTL()) {
+        this.setPadding(0, 0, value, 0)
     } else {
-        this.paddingLeft
+        this.setPadding(value, 0, 0, 0)
     }
+}
 
 @Desc("设置paddingEnd", "v1.0.2")
-var View.paddingEnd
-    set(value) {
-        if (isLayoutDirectionRTL()) {
-            this.setPadding(value, 0, value, 0)
-        } else {
-            this.setPadding(0, 0, value, 0)
-        }
-    }
-    @SuppressLint("NewApi")
-    get() = if (isLayoutDirectionRTL()) {
-        this.paddingEnd
+fun View.setPaddingEnd(value: Int) {
+    if (isLayoutDirectionRTL()) {
+        this.setPadding(value, 0, 0, 0)
     } else {
-        this.paddingRight
+        this.setPadding(0, 0, value, 0)
     }
+}
 
 @Desc("设置paddingBottom", "v1.0.2")
-var View.paddingBottom
-    set(value) = this.setPadding(0, 0, 0, value)
-    get() = this.paddingBottom
+fun View.setPaddingBottom(value: Int) {
+    this.setPadding(0, 0, 0, value)
+}
 
 /**
  * 检查View的LayoutParams是否是MarginLayoutParams
@@ -244,7 +227,7 @@ fun View.setScaleBackground(
 }
 
 @Desc("检查View是否有父布局", "v1.0.4")
-fun View.hasParent() = this.parent == null
+fun View.hasParent() = this.parent != null
 
 
 
