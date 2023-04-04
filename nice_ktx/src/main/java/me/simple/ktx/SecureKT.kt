@@ -1,5 +1,6 @@
 package me.simple.ktx
 
+import ktx.common.Desc
 import java.io.File
 import java.io.FileInputStream
 import java.io.IOException
@@ -7,12 +8,9 @@ import java.security.DigestInputStream
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 
-private val HEX_DIGITS =
-    charArrayOf('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F')
+private val HEX_DIGITS = charArrayOf('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F')
 
-/**
- * 字符串转MD5
- */
+@Desc("字符串转MD5", "v1.0.1")
 val String?.md5: String
     get() {
         if (this.isNullOrEmpty()) return ""
@@ -55,9 +53,7 @@ private fun hashTemplate(data: ByteArray?, algorithm: String): ByteArray? {
 
 }
 
-/**
- * 文件的MD5
- */
+@Desc("获取文件的MD5", "v1.0.1")
 val File?.md5: String
     get() {
         return bytes2HexString(encryptMD5File(this))
@@ -93,9 +89,7 @@ private fun encryptMD5File(file: File?): ByteArray? {
     }
 }
 
-/**
- * 字符串转sha1
- */
+@Desc("字符串转sha1", "v1.0.1")
 val String.sha1: String
     get() {
         return bytes2HexString(encryptSHA1(this.toByteArray()))
@@ -105,9 +99,7 @@ private fun encryptSHA1(data: ByteArray): ByteArray? {
     return hashTemplate(data, "SHA-1")
 }
 
-/**
- * 字符串转sha256
- */
+@Desc("字符串转sha256", "v1.0.1")
 val String.sha256: String
     get() {
         return bytes2HexString(encryptSHA256(this.toByteArray()))
@@ -117,9 +109,7 @@ private fun encryptSHA256(data: ByteArray): ByteArray? {
     return hashTemplate(data, "SHA-256")
 }
 
-/**
- * 字符串转sha512
- */
+@Desc("字符串转sha512", "v1.0.1")
 val String.sha512: String
     get() {
         return bytes2HexString(encryptSHA512(this.toByteArray()))
