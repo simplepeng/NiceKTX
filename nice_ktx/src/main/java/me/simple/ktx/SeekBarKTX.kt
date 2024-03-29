@@ -1,4 +1,4 @@
-package com.youloft.andclock.ext
+package me.simple.ktx
 
 import android.widget.SeekBar
 
