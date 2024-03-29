@@ -17,11 +17,11 @@ task clean(type: Delete) {
 }
 
 ext{
-    compileSdkVersion = 31
+    compileSdkVersion = 34
     buildToolsVersion = "30.0.3"
 
     minSdkVersion = 14
-    targetSdkVersion = 31
+    targetSdkVersion = 34
 
     groupId = "me.simple"
 }
