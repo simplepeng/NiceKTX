@@ -229,7 +229,12 @@ fun View.setScaleBackground(
 @Desc("检查View是否有父布局", "v1.0.4")
 fun View.hasParent() = this.parent != null
 
-
+@Desc("从父布局里面删除自己", "v1.0.4")
+fun View.removeFromParent() {
+    this.parent?.let {
+        (it as ViewGroup).removeView(this)
+    }
+}
 
 
 
