@@ -2,11 +2,14 @@ package me.simple.ktx
 
 import java.util.Calendar
 
-val Calendar.year: Int
-    get() = get(Calendar.YEAR)
+var Calendar.year: Int
+  get() = get(Calendar.YEAR)
+  set(value) = set(Calendar.YEAR, value)
 
-val Calendar.month: Int
-    get() = get(Calendar.MONTH) + 1
+var Calendar.month: Int
+  get() = get(Calendar.MONTH) + 1
+  set(value) = set(Calendar.MONTH, value - 1)
 
-val Calendar.day: Int
-    get() = get(Calendar.DAY_OF_MONTH)
+var Calendar.day: Int
+  get() = get(Calendar.DAY_OF_MONTH)
+  set(value) = set(Calendar.DAY_OF_MONTH, value)
