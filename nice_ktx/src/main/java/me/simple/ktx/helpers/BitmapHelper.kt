@@ -7,6 +7,7 @@ import android.graphics.drawable.BitmapDrawable
 
 /**
  * @hide
+ * @suppress
  */
 object BitmapHelper {
 
