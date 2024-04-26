@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    compileSdk 30
+    compileSdk rootProject.ext.compileSdkVersion
 
     defaultConfig {
         applicationId "com.youloft.wand"
         minSdk 21
-        targetSdk 30
+        targetSdk rootProject.ext.targetSdkVersion
         versionCode 100
         versionName "1.0.0"
 
@@ -47,8 +47,9 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
-    implementation 'com.blankj:utilcodex:1.26.0'
+    implementation 'com.blankj:utilcodex:1.31.1'
     implementation 'com.hyman:flowlayout-lib:1.1.2'
+    implementation("org.greenrobot:eventbus:3.3.1")
 
     implementation project(path: ':nice_ktx')
     implementation project(path: ':eventbus_ktx')
