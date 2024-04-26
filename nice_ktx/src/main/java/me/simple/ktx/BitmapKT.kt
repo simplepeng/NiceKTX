@@ -8,7 +8,18 @@ import java.io.File
 import java.io.FileOutputStream
 
 /**
+ * 这是Bitmap的扩展
+ * @author simplepeng
+ * @since 1.0.1
+ */
+
+
+/**
  * 保存到文件
+ * @param path 保存路径
+ * @param format 保存格式
+ * @param quality 保存质量
+ *
  * @since 1.0.1
  */
 @Desc("Bitmap转File", "v1.0.1")
@@ -66,7 +77,18 @@ fun Bitmap.scale(
   return scale(sx, sy, filter)
 }
 
-@Desc("添加水印", "v1.0.4")
+/**
+ * 给Bitmap添加水印
+ *
+ * @param watermark 水印Bitmap
+ * @param x 水印x坐标
+ * @param y 水印y坐标
+ * @param markW 水印宽
+ * @param markH 水印高
+ * @param alpha 水印透明度
+ *
+ * @since 1.0.4
+ */
 fun Bitmap.addWatermark(
   watermark: Bitmap,
   x: Float,
