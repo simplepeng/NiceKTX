@@ -36,4 +36,8 @@ ext {
 
 subprojects {
     apply plugin: 'org.jetbrains.dokka'
+
+    dokkaHtmlMultiModule {
+        outputDirectory.set(file("../build/documentation/html"))
+    }
 }
