@@ -37,8 +37,13 @@ dependencies {
     implementation project(path: ':lib_common')
     implementation("androidx.appcompat:appcompat:1.4.1")
 }
-
+//dokkaHtmlMultiModule
 dokkaHtml {
     outputDirectory.set(file("../build/documentation/html"))
+    moduleName.set("nice-ktx")
+}
+dokkaHtmlPartial {
+    outputDirectory.set(file("../build/documentation/html"))
+    moduleName.set("nice-ktx")
 }
 

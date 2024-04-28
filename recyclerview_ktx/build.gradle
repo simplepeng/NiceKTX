@@ -2,7 +2,7 @@ plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'maven-publish'
-//    id 'org.jetbrains.dokka' version "$dokka_version"
+    id 'org.jetbrains.dokka' version "$dokka_version"
 }
 
 afterEvaluate {
@@ -40,4 +40,9 @@ dependencies {
 
 //dokkaHtml {
 //    outputDirectory.set(file("../build/documentation/html"))
+//    moduleName.set("nice-ktx")
+//}
+//dokkaHtmlPartial {
+//    outputDirectory.set(file("../build/documentation/html"))
+//    moduleName.set("nice-ktx")
 //}
