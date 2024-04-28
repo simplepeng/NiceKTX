@@ -1,31 +1,39 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-  ext.kotlin_version = '1.5.20'
-  ext.dokka_version = '1.9.20'
-  repositories {
-    google()
-    mavenCentral()
-    maven { url 'https://jitpack.io' }
-  }
-  dependencies {
-    classpath 'com.android.tools.build:gradle:8.3.2'
-    classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.21'
-  }
+    ext.kotlin_version = '1.5.20'
+    ext.dokka_version = '1.9.20'
+
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.3.2'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.21'
+    }
+
+}
+
+plugins {
+    id 'org.jetbrains.dokka' version "1.9.20"
 }
 
 task clean(type: Delete) {
-  delete rootProject.buildDir
+    delete rootProject.buildDir
 }
 
 ext {
-  compileSdkVersion = 34
-  buildToolsVersion = "30.0.3"
+    compileSdkVersion = 34
+    buildToolsVersion = "30.0.3"
 
-  minSdkVersion = 14
-  targetSdkVersion = 34
+    minSdkVersion = 14
+    targetSdkVersion = 34
 
-  groupId = "me.simple"
-
-  dokkaVersion = '1.9.20'
+    groupId = "me.simple"
 }
 
+subprojects {
+    apply plugin: 'org.jetbrains.dokka'
+}
