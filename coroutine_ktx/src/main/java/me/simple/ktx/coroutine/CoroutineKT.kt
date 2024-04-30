@@ -1,15 +1,21 @@
 package me.simple.ktx.coroutine
 
-import androidx.lifecycle.*
+import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.LifecycleCoroutineScope
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import ktx.common.Desc
 import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.EmptyCoroutineContext
 
-@Desc(desc = "自动在onDestroy取消Job", createVersion = "v1.0.4")
+/**
+ * 自动在onDestroy取消Job
+ *
+ * @since 1.0.4
+ */
 fun LifecycleOwner.launchOnCreate(
     context: CoroutineContext = EmptyCoroutineContext,
     start: CoroutineStart = CoroutineStart.DEFAULT,
@@ -19,6 +25,9 @@ fun LifecycleOwner.launchOnCreate(
     this.lifecycle.addObserver(observer)
 }
 
+/**
+ * @suppress
+ */
 class OnCoroutineDestroyObserver(
     private val scope: LifecycleCoroutineScope,
     private val context: CoroutineContext = EmptyCoroutineContext,
@@ -39,7 +48,11 @@ class OnCoroutineDestroyObserver(
     }
 }
 
-@Desc(desc = "自动在onStop取消Job", createVersion = "v1.0.4")
+/**
+ * 自动在onStop取消Job
+ *
+ * @since 1.0.4
+ */
 fun LifecycleOwner.launchOnStart(
     context: CoroutineContext = EmptyCoroutineContext,
     start: CoroutineStart = CoroutineStart.DEFAULT,
@@ -49,6 +62,9 @@ fun LifecycleOwner.launchOnStart(
     this.lifecycle.addObserver(observer)
 }
 
+/**
+ * @suppress
+ */
 class OnCoroutineStopObserver(
     private val scope: LifecycleCoroutineScope,
     private val context: CoroutineContext = EmptyCoroutineContext,
@@ -69,7 +85,11 @@ class OnCoroutineStopObserver(
     }
 }
 
-@Desc(desc = "自动在onPause取消Job", createVersion = "v1.0.4")
+/**
+ * 自动在onPause取消Job
+ *
+ * @since 1.0.4
+ */
 fun LifecycleOwner.launchOnResume(
     context: CoroutineContext = EmptyCoroutineContext,
     start: CoroutineStart = CoroutineStart.DEFAULT,
@@ -79,6 +99,9 @@ fun LifecycleOwner.launchOnResume(
     this.lifecycle.addObserver(observer)
 }
 
+/**
+ * @suppress
+ */
 class OnCoroutinePauseObserver(
     private val scope: LifecycleCoroutineScope,
     private val context: CoroutineContext = EmptyCoroutineContext,
