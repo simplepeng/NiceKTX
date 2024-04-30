@@ -39,7 +39,6 @@ dependencies {
     implementation("androidx.recyclerview:recyclerview:1.2.1")
 }
 
-//dokkaHtmlMultiModule {
-//    outputDirectory.set(file("../build/documentation/html"))
-//    moduleName.set("RecyclerViewKTX")
-//}
+dokkaHtmlPartial{
+    moduleName.set("RecyclerViewKTX")
+}
