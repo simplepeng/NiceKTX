@@ -38,3 +38,7 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.4.1")
     implementation("org.greenrobot:eventbus:3.3.1")
 }
+
+dokkaHtmlPartial{
+    moduleName.set("EventBusKTX")
+}

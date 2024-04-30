@@ -37,3 +37,7 @@ dependencies {
     implementation project(path: ':lib_common')
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
 }
+
+dokkaHtmlPartial{
+    moduleName.set("CoroutineKTX")
+}

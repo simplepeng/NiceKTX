@@ -40,6 +40,6 @@ dependencies {
     implementation("androidx.viewpager:viewpager:1.0.0")
 }
 
-//dokkaHtml {
-//    outputDirectory.set(file("../build/documentation/html"))
-//}
+dokkaHtmlPartial{
+    moduleName.set("ViewPagerKTX")
+}

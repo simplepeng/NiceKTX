@@ -36,3 +36,7 @@ dependencies {
     implementation project(path: ':lib_common')
     implementation 'com.google.android.material:material:1.8.0'
 }
+
+dokkaHtmlPartial{
+    moduleName.set("MaterialKTX")
+}

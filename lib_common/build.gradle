@@ -36,3 +36,11 @@ android {
 dependencies {
 
 }
+
+dokkaHtmlPartial {
+    dokkaSourceSets {
+        configureEach {
+            suppress.set(true)
+        }
+    }
+}
