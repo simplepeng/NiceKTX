@@ -2,7 +2,7 @@ plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
 //    id 'maven-publish'
-    id 'org.jetbrains.dokka' version "$dokka_version"
+//    id 'org.jetbrains.dokka' version "$dokka_version"
 }
 
 //afterEvaluate {
@@ -35,7 +35,7 @@ android {
 }
 
 dependencies {
-    implementation project(path: ':lib_common')
+//    implementation project(path: ':lib_common')
     implementation("androidx.recyclerview:recyclerview:1.2.1")
 }
 

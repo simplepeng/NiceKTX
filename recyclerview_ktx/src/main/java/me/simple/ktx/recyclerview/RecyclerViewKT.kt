@@ -4,9 +4,12 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import ktx.common.Desc
 
-@Desc(createVersion = "v1.0.4")
+/**
+ * 线性布局
+ *
+ * @since 1.0.4
+ */
 fun RecyclerView.linear(
     @RecyclerView.Orientation orientation: Int = RecyclerView.VERTICAL,
     reverseLayout: Boolean = false
@@ -14,7 +17,11 @@ fun RecyclerView.linear(
     this.layoutManager = LinearLayoutManager(context, orientation, reverseLayout)
 }
 
-@Desc(createVersion = "v1.0.4")
+/**
+ * 网格布局
+ *
+ * @since 1.0.4
+ */
 fun RecyclerView.grid(
     spanCount: Int,
     @RecyclerView.Orientation orientation: Int = RecyclerView.VERTICAL,
@@ -23,7 +30,11 @@ fun RecyclerView.grid(
     this.layoutManager = GridLayoutManager(context, spanCount, orientation, reverseLayout)
 }
 
-@Desc(createVersion = "v1.0.4")
+/**
+ * 交错布局
+ *
+ * @since 1.0.4
+ */
 fun RecyclerView.staggered(
     spanCount: Int,
     @RecyclerView.Orientation orientation: Int = RecyclerView.VERTICAL
@@ -31,14 +42,22 @@ fun RecyclerView.staggered(
     this.layoutManager = StaggeredGridLayoutManager(spanCount, orientation)
 }
 
-@Desc("删除所有ItemDecoration", "v1.0.4")
+/**
+ * 删除所有ItemDecoration
+ *
+ * @since 1.0.4
+ */
 fun RecyclerView.removeAllItemDecoration() {
     for (index in 0 until itemDecorationCount) {
         removeItemDecorationAt(index)
     }
 }
 
-@Desc("滚动到末尾", "v1.0.4")
+/**
+ * 滚动到末尾
+ *
+ * @since 1.0.4
+ */
 fun RecyclerView.scrollToEnd(smooth: Boolean = true) {
     val itemCount = adapter?.itemCount ?: 0
     if (itemCount <= 0) return
@@ -49,7 +68,11 @@ fun RecyclerView.scrollToEnd(smooth: Boolean = true) {
     }
 }
 
-@Desc("滚动到开始", "v1.0.4")
+/**
+ * 滚动到开始
+ *
+ * @since 1.0.4
+ */
 fun RecyclerView.scrollToStart(smooth: Boolean = true) {
     val itemCount = adapter?.itemCount ?: 0
     if (itemCount <= 0) return
