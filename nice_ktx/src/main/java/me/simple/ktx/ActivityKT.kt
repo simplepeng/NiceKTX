@@ -12,10 +12,10 @@ import kotlin.reflect.KClass
 
 /**
  * 启动一个Activity
+ *
  * @param clazz 要启动的Activity类
  * @since 1.0.2
  */
-@Desc("启动一个Activity", "1.0.2")
 inline fun <reified T : Activity> Activity.startActivity(clazz: KClass<T>) {
     this.startActivity(Intent(this, clazz.java))
 }
