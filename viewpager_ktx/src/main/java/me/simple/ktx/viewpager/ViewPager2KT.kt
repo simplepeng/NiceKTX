@@ -1,7 +1,17 @@
 package me.simple.ktx.viewpager
 
 import androidx.viewpager2.widget.ViewPager2
-import ktx.common.Desc
+
+/**
+ * 是否可以切换到下一页
+ *
+ * @since 1.0.4
+ */
+val ViewPager2.canNextPage: Boolean
+  get() {
+    if (adapter == null) return false
+    return this.currentItem + 1 < this.adapter!!.itemCount
+  }
 
 /**
  * 下一页
@@ -14,6 +24,17 @@ fun ViewPager2.nextPage(smoothScroll: Boolean = true) {
   if (nextItem >= this.adapter!!.itemCount) return
   this.setCurrentItem(nextItem, smoothScroll)
 }
+
+/**
+ * 是否可以切换到上一页
+ *
+ * @since 1.0.4
+ */
+val ViewPager2.canPrePage: Boolean
+  get() {
+    if (adapter == null) return false
+    return this.currentItem -1 >= 0
+  }
 
 /**
  * 上一页
