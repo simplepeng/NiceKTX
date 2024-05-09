@@ -1,52 +1,53 @@
 package me.simple.ktx
 
 import android.view.animation.Animation
-import ktx.common.Desc
 
-@Desc("","v1.0.4")
-fun Animation.onAnimationEnd(block: () -> Unit) {
-    this.setAnimationListener(object : Animation.AnimationListener {
+/**
+ *
+ * @since 1.0.4
+ */
+fun Animation.setAnimationListenerKT(
+    onAnimationStart: (animation: Animation?) -> Unit = {},
+    onAnimationEnd: (animation: Animation?) -> Unit = {},
+    onAnimationRepeat: (animation: Animation?) -> Unit = {},
+) {
+    val listener = object : Animation.AnimationListener {
         override fun onAnimationStart(animation: Animation?) {
+            onAnimationStart.invoke(animation)
         }
 
         override fun onAnimationEnd(animation: Animation?) {
-            block.invoke()
+            onAnimationEnd.invoke(animation)
         }
 
         override fun onAnimationRepeat(animation: Animation?) {
+            onAnimationRepeat.invoke(animation)
         }
-    })
+    }
+    this.setAnimationListener(listener)
 }
 
-@Desc("","v1.0.4")
-fun Animation.onAnimationStart(block: () -> Unit) {
-    this.setAnimationListener(object : Animation.AnimationListener {
-        override fun onAnimationStart(animation: Animation?) {
-            block.invoke()
-        }
-
-        override fun onAnimationEnd(animation: Animation?) {
-
-        }
-
-        override fun onAnimationRepeat(animation: Animation?) {
-        }
-    })
+/**
+ *
+ * @since 1.0.4
+ */
+fun Animation.onAnimationStart(action: (animation: Animation?) -> Unit) {
+    setAnimationListenerKT(onAnimationStart = action)
 }
 
-@Desc("","v1.0.4")
-fun Animation.onAnimationRepeat(block: () -> Unit) {
-    this.setAnimationListener(object : Animation.AnimationListener {
-        override fun onAnimationStart(animation: Animation?) {
+/**
+ *
+ * @since 1.0.4
+ */
+fun Animation.doOnAnimationEnd(action: (animation: Animation?) -> Unit) {
+    setAnimationListenerKT(onAnimationEnd = action)
+}
 
-        }
 
-        override fun onAnimationEnd(animation: Animation?) {
-
-        }
-
-        override fun onAnimationRepeat(animation: Animation?) {
-            block.invoke()
-        }
-    })
+/**
+ *
+ * @since 1.0.4
+ */
+fun Animation.doOnAnimationRepeat(action: (animation: Animation?) -> Unit) {
+    setAnimationListenerKT(onAnimationRepeat = action)
 }
