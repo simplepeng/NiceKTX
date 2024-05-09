@@ -4,6 +4,8 @@ import java.util.Calendar
 
 /**
  * 哪年
+ *
+ * @since 1.0.4
  */
 var Calendar.year: Int
   get() = get(Calendar.YEAR)
@@ -11,6 +13,8 @@ var Calendar.year: Int
 
 /**
  * 哪月
+ *
+ * @since 1.0.4
  */
 var Calendar.month: Int
   get() = get(Calendar.MONTH) + 1
@@ -18,6 +22,8 @@ var Calendar.month: Int
 
 /**
  * 哪天
+ *
+ * @since 1.0.4
  */
 var Calendar.dayOfMonth: Int
   get() = get(Calendar.DAY_OF_MONTH)
@@ -25,12 +31,16 @@ var Calendar.dayOfMonth: Int
 
 /**
  * 当月有多少天
+ *
+ * @since 1.0.4
  */
 val Calendar.daysInMonth: Int
   get() = getActualMaximum(Calendar.DAY_OF_MONTH)
 
 /**
  * 一年的第几天
+ *
+ * @since 1.0.4
  */
 var Calendar.dayOfYear: Int
   get() = get(Calendar.DAY_OF_YEAR)
@@ -38,6 +48,8 @@ var Calendar.dayOfYear: Int
 
 /**
  *  24小时制的hour
+ *
+ *  @since 1.0.4
  */
 var Calendar.hourOfDay: Int
   get() = get(Calendar.HOUR_OF_DAY)
@@ -45,6 +57,8 @@ var Calendar.hourOfDay: Int
 
 /**
  * 12小时制的hour
+ *
+ * @since 1.0.4
  */
 var Calendar.hour: Int
   get() = get(Calendar.HOUR)
@@ -52,12 +66,16 @@ var Calendar.hour: Int
 
 /**
  * 几分
+ *
+ * @since 1.0.4
  */
 val Calendar.minute: Int
   get() = get(Calendar.MINUTE)
 
 /**
  * 重设到月初
+ *
+ * @since 1.0.4
  */
 fun Calendar.resetToMonthStart() {
   set(Calendar.DAY_OF_MONTH, 1)
@@ -69,6 +87,8 @@ fun Calendar.resetToMonthStart() {
 
 /**
  * 是否为同一天
+ *
+ * @since 1.0.4
  */
 fun Calendar.isSameDay(other: Calendar): Boolean {
   return year == other.year
