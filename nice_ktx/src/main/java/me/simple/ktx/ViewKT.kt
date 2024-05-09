@@ -42,6 +42,9 @@ fun View.singleClick(
     this.setOnClickListener(SingleClickListener(interval, block))
 }
 
+/**
+ * @suppress
+ */
 class SingleClickListener(
     private var interval: Int,
     private var block: (view: View) -> Unit
