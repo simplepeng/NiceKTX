@@ -7,34 +7,57 @@ import android.os.Build
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.ViewCompat
-import ktx.common.Desc
 import me.simple.ktx.helpers.BitmapHelper
 
-@Desc("隐藏View", "v1.0.0")
+/**
+ * 隐藏View
+ *
+ *  @since 1.0.0
+ */
 fun View.gone() {
     this.visibility = View.GONE
 }
 
-@Desc("显示View", "v1.0.0")
+/**
+ * 显示View
+ *
+ *  @since 1.0.0
+ */
 fun View.visible() {
     this.visibility = View.VISIBLE
 }
 
-@Desc("隐藏View，保留位置", "v1.0.0")
+/**
+ * 隐藏View
+ *
+ *  @since 1.0.0
+ */
 fun View.invisible() {
     this.visibility = View.INVISIBLE
 }
 
-@Desc("从View的Context中获取Activity", "v1.0.0")
+/**
+ * 从View的Context中获取Activity
+ *
+ *  @since 1.0.0
+ */
 val View.activity: Activity?
     get() = this.context.activity
 
-@Desc("点击事件", "v1.0.0")
+/**
+ * 点击事件
+ *
+ * @since 1.0.0
+ */
 fun View.click(block: (view: View) -> Unit) {
     this.setOnClickListener(block)
 }
 
-@Desc("防抖动点击事件", "v1.0.0", "v1.0.1", "interval修改为1s")
+/**
+ * 防抖动点击事件
+ *
+ * @since 1.0.1
+ */
 fun View.singleClick(
     interval: Int = 1000,
     block: (view: View) -> Unit
@@ -71,22 +94,38 @@ class SingleClickListener(
     }
 }
 
-@Desc("设置背景颜色", "v1.0.1")
+/**
+ * 设置背景颜色
+ *
+ * @since 1.0.2
+ */
 fun View.setBackgroundColor(colorStr: String) {
     this.setBackgroundColor(Color.parseColor(colorStr))
 }
 
-@Desc("是否是从右到左的布局", "v1.0.2")
+/**
+ * 是否是从右到左的布局
+ *
+ * @since 1.0.2
+ */
 fun View.isLayoutDirectionRTL(): Boolean {
     return ViewCompat.getLayoutDirection(this) == ViewCompat.LAYOUT_DIRECTION_RTL
 }
 
-@Desc("设置paddingTop", "v1.0.2")
+/**
+ * 设置paddingTop
+ *
+ * @since 1.0.2
+ */
 fun View.setPaddingTop(value: Int) {
     this.setPadding(0, value, 0, 0)
 }
 
-@Desc("设置paddingStart", "v1.0.2")
+/**
+ * 设置paddingStart
+ *
+ * @since 1.0.2
+ */
 fun View.setPaddingStart(value: Int) {
     if (isLayoutDirectionRTL()) {
         this.setPadding(0, 0, value, 0)
@@ -95,7 +134,11 @@ fun View.setPaddingStart(value: Int) {
     }
 }
 
-@Desc("设置paddingEnd", "v1.0.2")
+/**
+ * 设置paddingEnd
+ *
+ * @since 1.0.2
+ */
 fun View.setPaddingEnd(value: Int) {
     if (isLayoutDirectionRTL()) {
         this.setPadding(value, 0, 0, 0)
@@ -104,13 +147,19 @@ fun View.setPaddingEnd(value: Int) {
     }
 }
 
-@Desc("设置paddingBottom", "v1.0.2")
+/**
+ * 设置paddingBottom
+ *
+ * @since 1.0.2
+ */
 fun View.setPaddingBottom(value: Int) {
     this.setPadding(0, 0, 0, value)
 }
 
 /**
  * 检查View的LayoutParams是否是MarginLayoutParams
+ *
+ * @suppress
  */
 private fun checkIsMarginLayoutParams(view: View) {
     if (view.layoutParams !is ViewGroup.MarginLayoutParams) {
@@ -118,8 +167,12 @@ private fun checkIsMarginLayoutParams(view: View) {
     }
 }
 
+/**
+ * 设置View的margin
+ *
+ * @since 1.0.2
+ */
 @SuppressLint("NewApi")
-@Desc("设置View的margin", "v1.0.2")
 fun View.setMargin(
     start: Int,
     top: Int,
@@ -140,7 +193,9 @@ fun View.setMargin(
     this.layoutParams = lp
 }
 
-@Desc("设置marginTop", "v1.0.2")
+/**
+ * @since 1.0.2
+ */
 var View.marginTop: Int
     get() {
         checkIsMarginLayoutParams(this)
@@ -154,7 +209,9 @@ var View.marginTop: Int
         this.layoutParams = lp
     }
 
-@Desc("设置marginBottom", "v1.0.2")
+/**
+ * @since 1.0.2
+ */
 var View.marginBottom: Int
     get() {
         checkIsMarginLayoutParams(this)
@@ -168,7 +225,9 @@ var View.marginBottom: Int
         this.layoutParams = lp
     }
 
-@Desc("设置marginStart", "v1.0.2")
+/**
+ * @since 1.0.2
+ */
 var View.marginStart: Int
     @SuppressLint("NewApi")
     get() {
@@ -192,7 +251,9 @@ var View.marginStart: Int
         this.layoutParams = lp
     }
 
-@Desc("设置marginEnd", "v1.0.2")
+/**
+ * @since 1.0.2
+ */
 var View.marginEnd: Int
     @SuppressLint("NewApi")
     get() {
@@ -216,7 +277,10 @@ var View.marginEnd: Int
         this.layoutParams = lp
     }
 
-@Desc("设置缩放的背景图", "v1.0.2")
+/**
+ * 设置缩放的背景图
+ * @since 1.0.2
+ */
 fun View.setScaleBackground(
     resId: Int,
     inSampleSize: Int = 2
@@ -229,14 +293,18 @@ fun View.setScaleBackground(
     }
 }
 
-@Desc("检查View是否有父布局", "v1.0.4")
+/**
+ * 检查View是否有父布局
+ *
+ * @since 1.0.4
+ */
 fun View.hasParent() = this.parent != null
 
 /**
  * 从父布局里面删除自己
- * @since v1.0.4
+ *
+ * @since 1.0.4
  */
-@Desc("从父布局里面删除自己", "v1.0.4")
 fun View.removeFromParent() {
     this.parent?.let {
         (it as ViewGroup).removeView(this)
