@@ -6,6 +6,9 @@ import android.os.Build
 import android.view.View
 import androidx.annotation.ColorInt
 
+/**
+ * @suppress
+ */
 enum class Shape {
     RECTANGLE,
     OVAL,
@@ -13,6 +16,9 @@ enum class Shape {
     RING,
 }
 
+/**
+ * @suppress
+ */
 private fun setBackground(
     view: View,
     drawable: GradientDrawable,
