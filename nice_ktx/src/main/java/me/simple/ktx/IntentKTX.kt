@@ -5,6 +5,11 @@ import android.os.Build
 import android.os.Parcelable
 import java.io.Serializable
 
+/**
+ * getSerializableExtra的兼容方法
+ *
+ * @since 1.0.4
+ */
 @Suppress("DEPRECATION")
 inline fun <reified T : Serializable> Intent.getSerializableExtraCompat(name: String): T? {
   return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
@@ -14,6 +19,11 @@ inline fun <reified T : Serializable> Intent.getSerializableExtraCompat(name: St
   }
 }
 
+/**
+ * getParcelableExtra的兼容方法
+ *
+ * @since 1.0.4
+ */
 @Suppress("DEPRECATION")
 inline fun <reified T : Parcelable> Intent.getParcelableExtraCompat(name: String): T? {
   return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
