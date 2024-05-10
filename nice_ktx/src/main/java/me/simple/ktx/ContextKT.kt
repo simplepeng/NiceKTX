@@ -1,14 +1,21 @@
 package me.simple.ktx
 
 import android.app.Activity
-import android.content.*
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
+import android.content.ContextWrapper
+import android.content.Intent
 import android.content.res.Resources
 import android.net.ConnectivityManager
 import android.net.Uri
 import androidx.annotation.RequiresPermission
-import ktx.common.Desc
 
-@Desc("网络是否连接", "v1.0.0")
+/**
+ * 网络是否连接
+ *
+ * @since 1.0.0
+ */
 @RequiresPermission(android.Manifest.permission.ACCESS_NETWORK_STATE)
 fun Context.isConnected(): Boolean {
     val conn = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
@@ -16,7 +23,11 @@ fun Context.isConnected(): Boolean {
     return networkInfo.isAvailable && networkInfo.isConnected
 }
 
-@Desc("从Context获取Activity", "v1.0.0")
+/**
+ * 从Context获取Activity
+ *
+ * @since 1.0.0
+ */
 val Context.activity: Activity?
     get() {
         if (this is Activity) return this
@@ -31,15 +42,27 @@ val Context.activity: Activity?
         return null
     }
 
-@Desc("获取屏幕宽度", "v1.0.0")
+/**
+ * 获取屏幕宽度
+ *
+ * @since 1.0.0
+ */
 val Context.screenWidth
     get() = Resources.getSystem().displayMetrics.widthPixels
 
-@Desc("获取屏幕高度", "v1.0.0")
+/**
+ * 获取屏幕高度
+ *
+ * @since 1.0.0
+ */
 val Context.screenHeight
     get() = Resources.getSystem().displayMetrics.heightPixels
 
-@Desc("打开网页", "v1.0.0", "v1.0.2", "去掉try")
+/**
+ * 打开网页
+ *
+ * @since 1.0.0
+ */
 fun Context.openWeb(url: String) {
     val intent = Intent().apply {
         action = "android.intent.action.VIEW"
@@ -49,7 +72,11 @@ fun Context.openWeb(url: String) {
     this.startActivity(intent)
 }
 
-@Desc("发送Email", "v1.0.0", "v1.0.2", "去掉try")
+/**
+ * 发送Email
+ *
+ * @since 1.0.0
+ */
 fun Context.sendEmail(
     email: String,
     subject: String? = ""
@@ -62,7 +89,11 @@ fun Context.sendEmail(
     this.startActivity(intent)
 }
 
-@Desc("打开应用商店", "v1.0.0", "v1.0.2", "去掉try")
+/**
+ * 打开应用商店
+ *
+ * @since 1.0.0
+ */
 fun Context.openMarket(
     packageName: String = this.packageName
 ) {
@@ -72,7 +103,11 @@ fun Context.openMarket(
     this.startActivity(intent)
 }
 
-@Desc("复制文本", "v1.0.0")
+/**
+ * 复制文本
+ *
+ * @since 1.0.0
+ */
 fun Context.copyText(
     text: String,
     label: String
