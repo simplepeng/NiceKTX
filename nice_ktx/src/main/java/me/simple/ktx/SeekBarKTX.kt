@@ -2,6 +2,11 @@ package me.simple.ktx
 
 import android.widget.SeekBar
 
+/**
+ * SeekBar.setOnSeekBarChangeListener的扩展函数
+ *
+ * @since 1.0.4
+ */
 fun SeekBar.onSeekBarChange(
     onProgressChanged: (seekBar: SeekBar, progress: Int, fromUser: Boolean) -> Unit,
     onStartTrackingTouch: (seekBar: SeekBar) -> Unit = {},
