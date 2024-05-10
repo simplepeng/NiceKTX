@@ -1,10 +1,16 @@
 package me.simple.ktx
 
 import android.widget.ImageView
-import ktx.common.Desc
 import me.simple.ktx.helpers.BitmapHelper
 
-@Desc("设置缩放的资源图", "1.0.2")
+/**
+ * 设置缩放的资源图
+ *
+ * @param resId 资源id
+ * @param inSampleSize 缩放比例
+ *
+ * @since 1.0.2
+ */
 fun ImageView.setScaleImageResource(
     resId: Int,
     inSampleSize: Int = 2
