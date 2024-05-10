@@ -4,32 +4,54 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
 import androidx.annotation.StringRes
-import ktx.common.Desc
+import androidx.core.widget.addTextChangedListener
 
-@Desc("判断EditText的文本是否为空","v1.0.4")
+/**
+ * 判断EditText的文本是否为空
+ *
+ * @since 1.0.4
+ */
 fun EditText.isEmpty(): Boolean {
     return this.text.isNullOrEmpty()
 }
 
-@Desc("将光标移动至末尾","v1.0.4")
-fun EditText.selectionEnd() {
+/**
+ * 将光标移动至末尾
+ *
+ * @since 1.0.4
+ */
+fun EditText.setSelectionToEnd() {
     this.setSelection(this.text.length)
 }
 
-@Desc("设置文字，并将将光标移动至末尾","v1.0.4")
-fun EditText.setTextAndSelectionEnd(@StringRes resId: Int) {
+/**
+ * 设置文字，并将将光标移动至末尾
+ *
+ * @since 1.0.4
+ */
+fun EditText.setTextAndSelectionToEnd(@StringRes resId: Int) {
     this.setText(resId)
-    selectionEnd()
+    setSelectionToEnd()
 }
 
-@Desc("设置文字，并将将光标移动至末尾","v1.0.4")
-fun EditText.setTextAndSelectionEnd(text: CharSequence) {
+/**
+ * 设置文字，并将将光标移动至末尾
+ *
+ * @since 1.0.4
+ */
+fun EditText.setTextAndSelectionToEnd(text: CharSequence) {
     this.setText(text)
-    selectionEnd()
+    setSelectionToEnd()
 }
 
-@Desc("监听文本变化","v1.0.4")
+/**
+ * 监听文本变化
+ *
+ * @since 1.0.4
+ */
+@Deprecated("ktx TextViewKT自带了addTextChangedListener方法了")
 fun EditText.listenerTextChange(onChange: (s: CharSequence?, count: Int) -> Unit) {
+    this.addTextChangedListener {  }
     this.addTextChangedListener(object : TextWatcher {
         override fun afterTextChanged(s: Editable?) {
         }
