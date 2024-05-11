@@ -14,10 +14,10 @@ def nice_ktx = "v1.0.4"
 //常用的扩展函数
 implementation("com.github.simplepeng.NiceKTX:nice_ktx:$nice_ktx")
 //EventBus的扩展
-implementation()"com.github.simplepeng.NiceKTX:eventbus_ktx:$nice_ktx")
+implementation("com.github.simplepeng.NiceKTX:eventbus_ktx:$nice_ktx")
 //协程的扩展
 implementation("com.github.simplepeng.NiceKTX:coroutine_ktx:$nice_ktx")
-//
+//Material控件库的扩展
 implementation("com.github.simplepeng.NiceKTX:material_ktx:$nice_ktx")
 //RecyclerView的扩展
 implementation("com.github.simplepeng.NiceKTX:recyclerview_ktx:$nice_ktx")
@@ -241,6 +241,9 @@ safeUnregister()    //安全调用注销方法
 linear()
 grid()
 staggered()
+removeAllItemDecoration() //删除所有ItemDecoration
+scrollToEnd() //滚动到末尾
+scrollToStart() //滚动到开始
 ```
 
  ### ViewPagerKT
@@ -249,6 +252,8 @@ staggered()
 //同时支持ViewPage2
 nextPage()  //下一页
 prePage()   //上一页
+canNextPage //是否可以切换到下一页
+canPrePage //是否可以切换到上一页
 ```
 
 ### CoroutineKT
