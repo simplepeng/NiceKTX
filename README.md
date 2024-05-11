@@ -12,11 +12,17 @@ maven { url 'https://jitpack.io' }
 //版本号
 def nice_ktx = "v1.0.4"
 //常用的扩展函数
-implementation "com.github.simplepeng.NiceKTX:nice_ktx:$nice_ktx"
+implementation("com.github.simplepeng.NiceKTX:nice_ktx:$nice_ktx")
 //EventBus的扩展
-implementation "com.github.simplepeng.NiceKTX:eventbus_ktx:$nice_ktx"
+implementation()"com.github.simplepeng.NiceKTX:eventbus_ktx:$nice_ktx")
 //协程的扩展
-implementation "com.github.simplepeng.NiceKTX:coroutine_ktx:$nice_ktx"
+implementation("com.github.simplepeng.NiceKTX:coroutine_ktx:$nice_ktx")
+//
+implementation("com.github.simplepeng.NiceKTX:material_ktx:$nice_ktx")
+//RecyclerView的扩展
+implementation("com.github.simplepeng.NiceKTX:recyclerview_ktx:$nice_ktx")
+//ViewPager的扩展
+implementation("com.github.simplepeng.NiceKTX:viewpager_ktx:$nice_ktx")
 ```
 
 ### ActivityKT
@@ -252,6 +258,16 @@ LifecycleOwner.launchOnCreate() 	//自动在onDestroy取消Job
 LifecycleOwner.launchOnStart()  	//自动在onStop取消Job
 LifecycleOwner.launchOnResume() 	//自动在onPause取消Job
 ```
+
+### BottomSheetKT
+
+```kotlin
+BottomSheetDialogFragment.behavior
+BottomSheetDialogFragment.isDraggable
+BottomSheetDialog.isDraggable
+```
+
+
 
 ## 版本迭代
 
