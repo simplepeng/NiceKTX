@@ -40,4 +40,8 @@ subprojects {
     dokkaHtmlMultiModule {
         outputDirectory.set(file("../build/documentation/html"))
     }
+
+//    dokkaHtmlPartial{
+//        outputDirectory.set(file("../build/documentation/html"))
+//    }
 }
