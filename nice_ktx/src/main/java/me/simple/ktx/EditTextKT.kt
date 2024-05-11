@@ -51,7 +51,6 @@ fun EditText.setTextAndSelectionToEnd(text: CharSequence) {
  */
 @Deprecated("ktx TextViewKT自带了addTextChangedListener方法了")
 fun EditText.listenerTextChange(onChange: (s: CharSequence?, count: Int) -> Unit) {
-    this.addTextChangedListener {  }
     this.addTextChangedListener(object : TextWatcher {
         override fun afterTextChanged(s: Editable?) {
         }

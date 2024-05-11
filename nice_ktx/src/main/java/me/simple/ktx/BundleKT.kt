@@ -5,6 +5,11 @@ import android.os.Bundle
 import android.os.Parcelable
 import java.io.Serializable
 
+/**
+ * getSerializableExtra的兼容写法
+ *
+ * @since 1.0.4
+ */
 @Suppress("DEPRECATION")
 inline fun <reified T : Serializable> Bundle.getSerializableExtraCompat(
     name: String
@@ -16,6 +21,11 @@ inline fun <reified T : Serializable> Bundle.getSerializableExtraCompat(
     }
 }
 
+/**
+ * getParcelableExtra的兼容写法
+ *
+ * @since 1.0.4
+ */
 @Suppress("DEPRECATION")
 inline fun <reified T : Parcelable> Bundle.getParcelableExtraCompat(
     name: String

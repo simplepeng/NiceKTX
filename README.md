@@ -25,13 +25,13 @@ implementation "com.github.simplepeng.NiceKTX:coroutine_ktx:$nice_ktx"
 startActivity() //跳转Activity
 ```
 
-### [AnimationKT.kt](/nice_ktx/src/main)
-
-### AnyKT
+### AnimationKT.kt
 
 ```kotlin
-isNull()        //是否为空
-isNotNull()     //是否不为空
+onAnimationChange() //监听动画变化的回调
+onAnimationStart() //动画开始的回调
+doOnAnimationEnd() //动画结束的回调
+doOnAnimationRepeat() //动画循环的回调
 ```
 
 ### BitmapKT
@@ -45,6 +45,26 @@ scale(newWidth,newHeight)   //按大小缩放Bitmap
 addWatermark()              //添加水印
 ```
 
+### BooleanKT
+
+```kotlin
+isTure //是否为 true
+isFalse //是否为 false
+```
+
+### BundleKT
+
+```kotlin
+getSerializableExtraCompat() //getSerializableExtra的兼容写法
+getParcelableExtraCompat() //getParcelableExtra的兼容写法
+```
+
+### CalendarKT
+
+```kotlin
+
+```
+
 ### CanvasKT
 
 ```kotlin
@@ -56,7 +76,7 @@ drawTextOnCenter()      //画文字-以中心点为基准
 ### CharSequenceKT
 
 ```kotlin
-isNotNullAndEmpty() //判断字符串不是null也不是empty
+isNotNullOrEmpty() //判断字符串不是null也不是empty
 ```
 
 ### ContextKT
@@ -100,9 +120,29 @@ T?.orDefault()              //默认值填充
 
 ```kotlin
 isEmpty()                   //EditText的文本为空
-selectionEnd()              //将光标移动至末尾
-setTextAndSelectionEnd()    //设置文字，并将将光标移动至末尾
+setSelectionToEnd()         //将光标移动至末尾
+setTextAndSelectionToEnd()  //设置文字，并将将光标移动至末尾
 listenerTextChange()        //监听文本变化
+```
+
+### ImageViewKT
+
+```kotlin
+setScaleImageResource() //设置缩放的资源图
+```
+
+### IntentKT
+
+```kotlin
+getSerializableExtraCompat() //getSerializableExtra的兼容方法
+getParcelableExtraCompat() //getParcelableExtra的兼容方法
+```
+
+### PaintKT
+
+```kotlin
+textHeight //文本高度
+textAscentHeight //文本ascent高度
 ```
 
 ### SecureKT
@@ -111,6 +151,24 @@ listenerTextChange()        //监听文本变化
 String?.md5     //字符串转MD5
 File?.md5       //文件的MD5
 String.sha1     //字符串转sha1
+String.sha256   //字符串转sha256
+String.sha512   //字符串转sha512
+```
+
+### SeekBarKT
+
+```kotlin
+onSeekBarChange() //setOnSeekBarChangeListener的扩展函数
+```
+
+### ShapeKT
+
+```kotlin
+shape() //设置View的背景
+halfRoundRect() //圆角矩形-圆角radius为View高度的一半）
+roundRect() //圆角矩形
+gradientShape() //设置渐变的shape
+halfGradientShape() //设置渐变的shape，带圆角，圆角为View高度的一半
 ```
 
 ### TextViewKT
@@ -127,6 +185,18 @@ toast()     //短吐司
 longToast() //长吐司
 ```
 
+### UriKT
+
+```kotlin
+Int.toUri()                 //将res-raw目录下的资源转换成Uri
+Context.rawIdToUri()        //将res-raw目录下的资源转换成Uri
+```
+
+### ViewGroupKT
+
+```kotlin
+```
+
 ### ViewKT
 
 ```kotlin
@@ -136,13 +206,6 @@ invisible()     //隐藏View，保留位置
 getActivity()   //从View的Context中获取Activity
 click()         //点击事件
 singleClick()   //防抖动单击事件
-```
-
-### UriKT
-
-```kotlin
-Int.toUri()                 //将res-raw目录下的资源转换成Uri
-Context.rawIdToUri()        //将res-raw目录下的资源转换成Uri
 ```
 
 ### WebViewKT

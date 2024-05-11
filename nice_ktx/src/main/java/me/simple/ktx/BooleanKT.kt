@@ -15,12 +15,16 @@ fun Boolean?.ifFalse(block: (Boolean) -> Unit) {
 }
 
 /**
+ * 是否为 true
+ *
  * @since 1.0.4
  */
 val Boolean?.isTure: Boolean
     get() = this == true
 
 /**
+ * 是否为 false
+ *
  * @since 1.0.4
  */
 val Boolean?.isFalse
