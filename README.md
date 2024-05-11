@@ -62,7 +62,16 @@ getParcelableExtraCompat() //getParcelableExtra的兼容写法
 ### CalendarKT
 
 ```kotlin
-
+Calendar.year
+Calendar.month
+Calendar.dayOfMonth
+Calendar.daysInMonth //当月有多少天
+Calendar.dayOfYear
+Calendar.hourOfDay //24小时制的hour
+Calendar.hour //12小时制的hour
+Calendar.minute
+resetToMonthStart() //重设到月初
+isSameDay() //是否为同一天
 ```
 
 ### CanvasKT
