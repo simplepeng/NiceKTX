@@ -35,8 +35,8 @@ android {
 
 dependencies {
 //    implementation project(path: ':lib_common')
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("org.greenrobot:eventbus:3.3.1")
+    implementation(libs.androidx.appcompat)
+    implementation(libs.eventbus)
 }
 
 dokkaHtmlPartial{

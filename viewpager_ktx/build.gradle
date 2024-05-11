@@ -36,8 +36,8 @@ android {
 
 dependencies {
 //    implementation project(path: ':lib_common')
-    implementation("androidx.viewpager2:viewpager2:1.0.0")
-    implementation("androidx.viewpager:viewpager:1.0.0")
+    implementation(libs.androidx.viewpager2)
+    implementation(libs.androidx.viewpager)
 }
 
 dokkaHtmlPartial{
