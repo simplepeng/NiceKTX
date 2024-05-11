@@ -201,11 +201,6 @@ Int.toUri()                 //将res-raw目录下的资源转换成Uri
 Context.rawIdToUri()        //将res-raw目录下的资源转换成Uri
 ```
 
-### ViewGroupKT
-
-```kotlin
-```
-
 ### ViewKT
 
 ```kotlin
