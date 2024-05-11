@@ -3,10 +3,10 @@ package me.simple.ktx
 import android.view.animation.Animation
 
 /**
- *
+ * 监听动画变化的回调
  * @since 1.0.4
  */
-fun Animation.setAnimationListenerKT(
+fun Animation.onAnimationChange(
     onAnimationStart: (animation: Animation?) -> Unit = {},
     onAnimationEnd: (animation: Animation?) -> Unit = {},
     onAnimationRepeat: (animation: Animation?) -> Unit = {},
@@ -28,26 +28,28 @@ fun Animation.setAnimationListenerKT(
 }
 
 /**
+ * 动画开始的回调
  *
  * @since 1.0.4
  */
 fun Animation.onAnimationStart(action: (animation: Animation?) -> Unit) {
-    setAnimationListenerKT(onAnimationStart = action)
+    onAnimationChange(onAnimationStart = action)
 }
 
 /**
+ * 动画结束的回调
  *
  * @since 1.0.4
  */
 fun Animation.doOnAnimationEnd(action: (animation: Animation?) -> Unit) {
-    setAnimationListenerKT(onAnimationEnd = action)
+    onAnimationChange(onAnimationEnd = action)
 }
 
 
 /**
- *
+ * 动画循环的回调
  * @since 1.0.4
  */
 fun Animation.doOnAnimationRepeat(action: (animation: Animation?) -> Unit) {
-    setAnimationListenerKT(onAnimationRepeat = action)
+    onAnimationChange(onAnimationRepeat = action)
 }

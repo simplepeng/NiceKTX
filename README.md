@@ -10,7 +10,7 @@ maven { url 'https://jitpack.io' }
 
 ```groovy
 //版本号
-def nice_ktx = "v1.0.3"
+def nice_ktx = "v1.0.4"
 //常用的扩展函数
 implementation "com.github.simplepeng.NiceKTX:nice_ktx:$nice_ktx"
 //EventBus的扩展
@@ -24,6 +24,8 @@ implementation "com.github.simplepeng.NiceKTX:coroutine_ktx:$nice_ktx"
 ```kotlin
 startActivity() //跳转Activity
 ```
+
+### [AnimationKT.kt](/nice_ktx/src/main)
 
 ### AnyKT
 
@@ -186,6 +188,7 @@ LifecycleOwner.launchOnResume() 	//自动在onPause取消Job
 
 ## 版本迭代
 
+* v1.0.4: 大改，升级gradle，迁移到libs.toml
 * v1.0.3：更新gradle版本，适配java11
 * v1.0.2：增加`EventBus`安全调用方法，上传至`jitpack`
 * v1.0.1：去除`BuildConfig.class`
