@@ -1,5 +1,6 @@
 package me.simple.ktx
 
+import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Paint
 
@@ -53,4 +54,20 @@ fun Canvas.drawTextOnCenter(
     paint.textAlign = textAlign
     this.drawText(text, x, newY, paint)
     paint.textAlign = tmpAlign
+}
+
+/**
+ * drawBitmap-以中心点为基准
+ *
+ * @since 1.0.5
+ */
+fun Canvas.drawBitmapOnCenter(
+    bitmap: Bitmap,
+    centerX: Float,
+    centerY: Float,
+    paint: Paint? = null
+) {
+    val left = centerX - bitmap.width / 2f
+    val top = centerY - bitmap.height / 2f
+    this.drawBitmap(bitmap, left, top, paint)
 }
